@@ -16,7 +16,7 @@ class SharedNavbar extends HTMLElement {
           <li><a href="#">DesignLab</a></li>
         </ul>
 
-        <a href="shop.html#series" class="nav-cta">Shop Now</a>
+        <a href="contact.html" class="nav-cta">Shop with Trade price</a>
       </nav>
     `;
   }
