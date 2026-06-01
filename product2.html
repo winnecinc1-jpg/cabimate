@@ -373,9 +373,17 @@ img { max-width:100%; display:block; }
 @media (max-width:540px) {
   .overview-products { grid-template-columns: 1fr; }
 }
+
+
 </style>
+<!-- Link to your centralized master stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- PUT THE NAVBAR TAG HERE (At the very top of the body) -->
+  <shared-navbar></shared-navbar>
+
+
 
 <div id="cur"></div>
 <div id="cur-ring"></div>
@@ -874,5 +882,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+<!-- PUT THE SCRIPT TAG HERE (At the very bottom, right before the body closes) -->
+  <script src="navbar.js"></script>
+
 </body>
+
 </html>
