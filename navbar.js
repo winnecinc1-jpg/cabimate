@@ -7,7 +7,7 @@ class SharedNavbar extends HTMLElement {
         </a>
 
         <ul class="nav-links">
-          <li><a href="shop.html">Collection</a></li>
+          <li><a href="product2.html">Collection</a></li>
           <li><a href="index.html#finishes">Finishes</a></li>
           <li><a href="index.html#kitchen">Kitchen</a></li>
           <li><a href="index.html#shower">Shower</a></li>
