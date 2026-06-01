@@ -2,22 +2,21 @@ class SharedNavbar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <nav class="site-nav">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <img src="cabimate.png" alt="CABIMATE Logo" class="logo-img">
         </a>
 
         <ul class="nav-links">
-          <li><a href="product2.html">Collection</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/collection">Collection</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="#">DesignLab</a></li>
         </ul>
 
-        <a href="contact.html" class="nav-cta">Shop with Trade price</a>
+        <a href="/contact" class="nav-cta">Shop with Trade Price</a>
       </nav>
     `;
   }
 }
 
-// Register the custom element
 customElements.define('shared-navbar', SharedNavbar);
