@@ -35,60 +35,6 @@ body{
   overflow-x:hidden;
 }
 
-/* NAV */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:999;
-  padding:20px 60px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-}
-
-.logo img{
-  height:42px;
-  width:auto;
-  display:block;
-}
-
-.nav-links{
-  display:flex;
-  gap:40px;
-  list-style:none;
-}
-
-.nav-links a{
-  color:var(--silver);
-  text-decoration:none;
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  transition:.3s;
-  font-weight:600;
-}
-
-.nav-links a:hover{
-  color:var(--red);
-}
-
-.nav-btn{
-  background:var(--red);
-  color:#fff;
-  text-decoration:none;
-  padding:12px 26px;
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  font-weight:600;
-}
 
 /* HERO */
 
@@ -474,30 +420,14 @@ footer{
 }
 
 </style>
+
+<!-- Link to your centralized master stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- PUT THE NAVBAR TAG HERE (At the very top of the body) -->
+  <shared-navbar></shared-navbar>
 
-<!-- NAV -->
-
-<nav>
-
-  <a href="index.html" class="logo">
-    <img src="cabimate.png" alt="">
-  </a>
-
-  <ul class="nav-links">
-    <li><a href="shop.html">Collection</a></li>
-    <li><a href="#finishes">Finishes</a></li>
-    <li><a href="#kitchen">Kitchen</a></li>
-    <li><a href="#shower">Shower</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-     <li><a href="#">DesignLab</a></li>
-  </ul>
-
-  <a href="#" class="nav-btn">Shop Now</a>
-
-</nav>
 
 <!-- HERO -->
 
@@ -727,5 +657,7 @@ footer{
   © 2026 CABIMATE HARDWARE — MODERN CANADIAN CABINET HARDWARE
 </footer>
 
+<!-- PUT THE SCRIPT TAG HERE (At the very bottom, right before the body closes) -->
+  <script src="navbar.js"></script>
 </body>
 </html>

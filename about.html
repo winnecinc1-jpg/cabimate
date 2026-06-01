@@ -31,54 +31,6 @@ body{
   overflow-x:hidden;
 }
 
-/* NAVBAR */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:999;
-  padding:20px 6vw;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,0.65);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.04);
-}
-
-.logo{
-  color:#fff;
-  text-decoration:none;
-  font-size:28px;
-  font-weight:700;
-  letter-spacing:3px;
-}
-
-.logo span{
-  color:var(--red);
-}
-
-.nav-links{
-  display:flex;
-  gap:40px;
-  list-style:none;
-}
-
-.nav-links a{
-  color:#d5d5d5;
-  text-decoration:none;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  transition:0.3s;
-}
-
-.nav-links a:hover{
-  color:var(--red);
-}
-
 /* HERO */
 
 .about-hero{
@@ -334,29 +286,7 @@ footer p{
 
 }
 
-@media(max-width:768px){
 
-  nav{
-    padding:18px 20px;
-  }
-
-  .nav-links{
-    gap:18px;
-  }
-
-  .nav-links a{
-    font-size:10px;
-  }
-
-  .about-hero{
-    padding:140px 20px 70px;
-  }
-
-  .story-section,
-  .values,
-  .cta{
-    padding:90px 20px;
-  }
 
   footer{
     padding:30px 20px;
@@ -364,14 +294,7 @@ footer p{
     text-align:center;
   }
 
-}
 
-.logo-img{
-  height:42px;
-  width:auto;
-  display:block;
-  object-fit:contain;
-}
 
 
 /* ======================================================
@@ -608,28 +531,15 @@ footer p{
 }
 
 </style>
+
+<!-- Link to your centralized master stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAVBAR -->
+  <!-- PUT THE NAVBAR TAG HERE (At the very top of the body) -->
+  <shared-navbar></shared-navbar>
 
-<nav>
-
-  <a href="index.html" class="logo">
-    <img src="cabimate.png" alt="CABIMATE Logo" class="logo-img">
-  </a>
-
-  <ul class="nav-links">
-    <li><a href="shop.html">Collection</a></li>
-    <li><a href="#finishes">Finishes</a></li>
-    <li><a href="#kitchen">Kitchen</a></li>
-    <li><a href="#shower">Shower</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-     <li><a href="#">DesignLab</a></li>
-  </ul>
-
-</nav>
 <!-- HERO -->
 
 <section class="about-hero">
@@ -946,7 +856,12 @@ footer p{
 
   </script>
 
+  
+<!-- PUT THE SCRIPT TAG HERE (At the very bottom, right before the body closes) -->
+  <script src="navbar.js"></script>
+
 </body>
 </html>
+
 </body>
 </html>
