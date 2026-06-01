@@ -7,10 +7,9 @@ class SharedNavbar extends HTMLElement {
         </a>
 
         <ul class="nav-links">
-      <li><a href="/product2">Collection</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="#">DesignLab</a></li>
+<li><a href="/product2">Collection</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/contact">Contact</a></li>
         </ul>
 
         <a href="/contact" class="nav-cta">Shop with Trade Price</a>
