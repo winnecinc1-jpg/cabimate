@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CABIMATE — Shop Hardware</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --black:#0a0a0a;
+  --deep:#111111;
+  --carbon:#1a1a1a;
+  --graphite:#2a2a2a;
+
+  --red:#C0001E;
+  --red-dim:#8a0015;
+
+  --silver:#c8c8c8;
+  --chrome:#e8e8e8;
+  --white:#f5f5f0;
+  --muted:#888;
+
+  --border:rgba(255,255,255,0.05);
+
+  --serif:'Cormorant Garamond', serif;
+  --display:'Bebas Neue', sans-serif;
+  --sans:'Montserrat', sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--sans);
+  overflow-x:hidden;
+}
+
+/* ======================================================
+NAVBAR
+====================================================== */
+
+.cb-nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+
+  height:78px;
+  padding:0 60px;
+
+  background:rgba(10,10,10,.96);
+  border-bottom:1px solid var(--border);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  backdrop-filter:blur(10px);
+}
+
+.cb-logo img{
+  height:42px;
+  display:block;
+}
+
+.cb-menu{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  list-style:none;
+}
+
+.cb-menu a{
+  text-decoration:none;
+  color:var(--silver);
+
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:500;
+
+  transition:.3s;
+}
+
+.cb-menu a:hover{
+  color:var(--red);
+}
+
+.cb-cart{
+  text-decoration:none;
+  color:var(--white);
+
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+/* ======================================================
+SHOP HERO
+====================================================== */
+
+.shop-hero{
+  position:relative;
+  min-height:420px;
+
+  display:flex;
+  align-items:center;
+
+  padding:120px 60px 100px;
+
+  overflow:hidden;
+
+  border-bottom:1px solid var(--border);
+}
+
+.shop-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+
+  background:
+  radial-gradient(circle at 70% 50%, rgba(192,0,30,.12), transparent 40%),
+
+  repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 59px,
+    rgba(255,255,255,.015) 59px,
+    rgba(255,255,255,.015) 60px
+  );
+}
+
+.shop-hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.shop-eyebrow{
+  color:var(--red);
+
+  font-size:11px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+
+  margin-bottom:22px;
+
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.shop-eyebrow::before{
+  content:'';
+  width:42px;
+  height:1px;
+  background:var(--red);
+}
+
+.shop-title{
+  font-family:var(--display);
+  font-size:clamp(70px,9vw,140px);
+  line-height:.9;
+  letter-spacing:1px;
+  margin-bottom:18px;
+}
+
+.shop-title span{
+  color:var(--red);
+}
+
+.shop-sub{
+  font-family:var(--serif);
+  font-style:italic;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.8;
+  max-width:520px;
+}
+
+/* ======================================================
+SHOP LAYOUT
+====================================================== */
+
+.shop-wrap{
+  padding:80px 60px;
+}
+
+.shop-grid{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+}
+
+/* ======================================================
+SIDEBAR
+====================================================== */
+
+.shop-sidebar{
+  position:sticky;
+  top:110px;
+  align-self:start;
+}
+
+.filter-box{
+  background:var(--deep);
+  border:1px solid var(--border);
+
+  padding:32px;
+  margin-bottom:20px;
+}
+
+.filter-title{
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+
+  color:var(--red);
+
+  margin-bottom:24px;
+  font-weight:600;
+}
+
+.filter-list{
+  list-style:none;
+
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.filter-list a{
+  text-decoration:none;
+  color:var(--silver);
+
+  font-size:13px;
+  transition:.3s;
+}
+
+.filter-list a:hover{
+  color:var(--white);
+}
+
+.finish-option{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  margin-bottom:16px;
+
+  color:var(--silver);
+  font-size:13px;
+}
+
+.finish-dot{
+  width:16px;
+  height:16px;
+  border-radius:50%;
+}
+
+.dot-black{
+  background:#111;
+  border:1px solid #333;
+}
+
+.dot-chrome{
+  background:linear-gradient(135deg,#fff,#999);
+}
+
+.dot-nickel{
+  background:linear-gradient(135deg,#d9d4c2,#8f8875);
+}
+
+.dot-brass{
+  background:linear-gradient(135deg,#d5a847,#78521a);
+}
+
+.dot-gold{
+  background:linear-gradient(135deg,#f0b8a0,#c06f59);
+}
+
+/* ======================================================
+PRODUCTS
+====================================================== */
+
+.products-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:26px;
+}
+
+.results-text{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.shop-sort select{
+  background:var(--deep);
+  border:1px solid var(--border);
+
+  color:var(--silver);
+
+  padding:14px 18px;
+
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+
+  outline:none;
+}
+
+.products-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+
+  background:var(--border);
+}
+
+.product-card{
+  background:var(--deep);
+
+  padding:34px;
+  position:relative;
+
+  overflow:hidden;
+  transition:.4s;
+}
+
+.product-card:hover{
+  background:var(--carbon);
+}
+
+.product-card::after{
+  content:'';
+
+  position:absolute;
+  left:0;
+  bottom:0;
+
+  width:0;
+  height:2px;
+
+  background:var(--red);
+
+  transition:.4s;
+}
+
+.product-card:hover::after{
+  width:100%;
+}
+
+.product-thumb{
+  height:220px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:30px;
+}
+
+.product-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.product-finish{
+  color:var(--red);
+
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+
+  margin-bottom:14px;
+  font-weight:600;
+}
+
+.product-title{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:300;
+
+  margin-bottom:10px;
+}
+
+.product-sku{
+  color:var(--muted);
+
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+
+  margin-bottom:22px;
+}
+
+.product-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.product-price{
+  color:var(--silver);
+  font-size:14px;
+}
+
+.product-btn{
+  width:40px;
+  height:40px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  transition:.3s;
+}
+
+.product-card:hover .product-btn{
+  border-color:var(--red);
+  transform:translateX(4px);
+}
+
+.product-btn svg{
+  stroke:var(--red);
+}
+
+/* ======================================================
+PAGINATION
+====================================================== */
+
+.cb-pagination{
+  margin-top:60px;
+
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+.cb-pagination a{
+  width:46px;
+  height:46px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+
+  background:var(--deep);
+  border:1px solid var(--border);
+
+  color:var(--silver);
+
+  transition:.3s;
+}
+
+.cb-pagination a:hover,
+.cb-pagination .active{
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff;
+}
+
+/* ======================================================
+FOOTER
+====================================================== */
+
+.cb-footer{
+  margin-top:100px;
+
+  padding:80px 60px 40px;
+
+  background:var(--carbon);
+  border-top:1px solid var(--border);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:60px;
+}
+
+.footer-logo{
+  font-family:var(--display);
+  font-size:38px;
+  letter-spacing:4px;
+
+  margin-bottom:18px;
+}
+
+.footer-logo span{
+  color:var(--red);
+}
+
+.footer-text{
+  color:var(--muted);
+
+  font-family:var(--serif);
+  font-style:italic;
+
+  font-size:16px;
+  line-height:1.8;
+
+  max-width:420px;
+}
+
+.footer-title{
+  color:var(--red);
+
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+
+  margin-bottom:24px;
+}
+
+.footer-links{
+  list-style:none;
+
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--muted);
+  transition:.3s;
+}
+
+.footer-links a:hover{
+  color:var(--white);
+}
+
+.footer-bottom{
+  margin-top:60px;
+  padding-top:30px;
+
+  border-top:1px solid var(--border);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  color:var(--muted);
+
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+/* ======================================================
+MOBILE
+====================================================== */
+
+@media(max-width:1100px){
+
+  .products-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:900px){
+
+  .shop-grid{
+    grid-template-columns:1fr;
+  }
+
+  .shop-sidebar{
+    position:relative;
+    top:auto;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .cb-nav,
+  .shop-wrap,
+  .shop-hero,
+  .cb-footer{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .cb-menu{
+    display:none;
+  }
+
+  .products-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav class="cb-nav">
+
+  <a href="index.html" class="cb-logo">
+    <img src="cabimate.png" alt="CABIMATE Logo">
+  </a>
+
+  <ul class="cb-menu">
+    <li><a href="shop.html">Collection</a></li>
+    <li><a href="#finishes">Finishes</a></li>
+    <li><a href="#kitchen">Kitchen</a></li>
+    <li><a href="#shower">Shower</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#">DesignLab</a></li>
+  </ul>
+
+  <a href="#" class="cb-cart">
+    Cart (0)
+  </a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="shop-hero">
+
+  <div class="shop-hero-content">
+
+    <div class="shop-eyebrow">
+      CABIMATE COLLECTION
+    </div>
+
+    <h1 class="shop-title">
+      SHOP<br>
+      <span>HARDWARE</span>
+    </h1>
+
+    <p class="shop-sub">
+      Premium cabinet handles, knobs, pulls, and shower hardware designed for modern Canadian interiors.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- SHOP -->
+
+<section class="shop-wrap">
+
+  <div class="shop-grid">
+
+    <!-- SIDEBAR -->
+
+    <aside class="shop-sidebar">
+
+      <div class="filter-box">
+
+        <div class="filter-title">
+          Categories
+        </div>
+
+        <ul class="filter-list">
+          <li><a href="#">Kitchen Handles</a></li>
+          <li><a href="#">Knobs & Pulls</a></li>
+          <li><a href="#">Bar Handles</a></li>
+          <li><a href="#">Shower Hardware</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+
+      </div>
+
+      <div class="filter-box">
+
+        <div class="filter-title">
+          Finishes
+        </div>
+
+        <div class="finish-option">
+          <span class="finish-dot dot-black"></span>
+          Matte Black
+        </div>
+
+        <div class="finish-option">
+          <span class="finish-dot dot-chrome"></span>
+          Polished Chrome
+        </div>
+
+        <div class="finish-option">
+          <span class="finish-dot dot-nickel"></span>
+          Brushed Nickel
+        </div>
+
+        <div class="finish-option">
+          <span class="finish-dot dot-brass"></span>
+          Antique Brass
+        </div>
+
+        <div class="finish-option">
+          <span class="finish-dot dot-gold"></span>
+          Rose Gold
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- PRODUCTS -->
+
+    <div>
+
+      <div class="products-header">
+
+        <div class="results-text">
+          Showing 12 premium products
+        </div>
+
+        <div class="shop-sort">
+
+          <select>
+            <option>Default Sorting</option>
+            <option>Newest</option>
+            <option>Price Low to High</option>
+            <option>Price High to Low</option>
+          </select>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUCTS GRID -->
+
+      <div class="products-grid">
+
+        <!-- PRODUCT -->
+
+        <div class="product-card">
+
+          <div class="product-thumb">
+            <img src="product1.png" alt="">
+          </div>
+
+          <div class="product-finish">
+            Matte Black · MBK
+          </div>
+
+          <h2 class="product-title">
+            Linear Bar — 320mm
+          </h2>
+
+          <div class="product-sku">
+            A11-320MBK
+          </div>
+
+          <div class="product-bottom">
+
+            <div class="product-price">
+              $24.99
+            </div>
+
+            <div class="product-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5">
+                <path d="M2 7h10M7 2l5 5-5 5"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product-card">
+
+          <div class="product-thumb">
+            <img src="product2.png" alt="">
+          </div>
+
+          <div class="product-finish">
+            Polished Chrome · PCH
+          </div>
+
+          <h2 class="product-title">
+            T-Profile — 128mm
+          </h2>
+
+          <div class="product-sku">
+            A11-128PCH
+          </div>
+
+          <div class="product-bottom">
+
+            <div class="product-price">
+              $18.99
+            </div>
+
+            <div class="product-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5">
+                <path d="M2 7h10M7 2l5 5-5 5"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product-card">
+
+          <div class="product-thumb">
+            <img src="AA.png" alt="">
+          </div>
+
+          <div class="product-finish">
+            Antique Brass · ABR
+          </div>
+
+          <h2 class="product-title">
+            Square Knob
+          </h2>
+
+          <div class="product-sku">
+            A11-000ABR
+          </div>
+
+          <div class="product-bottom">
+
+            <div class="product-price">
+              $12.99
+            </div>
+
+            <div class="product-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5">
+                <path d="M2 7h10M7 2l5 5-5 5"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product-card">
+
+          <div class="product-thumb">
+            <img src="product4.png" alt="">
+          </div>
+
+          <div class="product-finish">
+            Brushed Nickel · BSN
+          </div>
+
+          <h2 class="product-title">
+            Arc Pull — 160mm
+          </h2>
+
+          <div class="product-sku">
+            A11-160BSN
+          </div>
+
+          <div class="product-bottom">
+
+            <div class="product-price">
+              $22.99
+            </div>
+
+            <div class="product-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5">
+                <path d="M2 7h10M7 2l5 5-5 5"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product-card">
+
+          <div class="product-thumb">
+            <img src="product5.png" alt="">
+          </div>
+
+          <div class="product-finish">
+            Rose Gold · RGD
+          </div>
+
+          <h2 class="product-title">
+            Angled Pull — 160mm
+          </h2>
+
+          <div class="product-sku">
+            A11-160RGD
+          </div>
+
+          <div class="product-bottom">
+
+            <div class="product-price">
+              $26.99
+            </div>
+
+            <div class="product-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5">
+                <path d="M2 7h10M7 2l5 5-5 5"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- PRODUCT -->
+
+        <div class="product-card">
+
+          <div class="product-thumb">
+            <img src="product2.png" alt="">
+          </div>
+
+          <div class="product-finish">
+            Matte Black · MBK
+          </div>
+
+          <h2 class="product-title">
+            Flat Bar — 320mm
+          </h2>
+
+          <div class="product-sku">
+            A11-320MBK-F
+          </div>
+
+          <div class="product-bottom">
+
+            <div class="product-price">
+              $29.99
+            </div>
+
+            <div class="product-btn">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.5">
+                <path d="M2 7h10M7 2l5 5-5 5"/>
+              </svg>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PAGINATION -->
+
+      <div class="cb-pagination">
+
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">→</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="cb-footer">
+
+  <div class="footer-grid">
+
+    <div>
+
+      <div class="footer-logo">
+        CAB<span>I</span>MATE
+      </div>
+
+      <p class="footer-text">
+        Charm your cabinet. Define your space. Premium Canadian cabinet hardware for modern interiors.
+      </p>
+
+    </div>
+
+    <div>
+
+      <div class="footer-title">
+        Collection
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#">Series 11</a></li>
+        <li><a href="#">Kitchen Handles</a></li>
+        <li><a href="#">Knobs & Pulls</a></li>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <div class="footer-title">
+        Finishes
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#">Matte Black</a></li>
+        <li><a href="#">Polished Chrome</a></li>
+        <li><a href="#">Brushed Nickel</a></li>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <div class="footer-title">
+        Company
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Trade Program</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 CABIMATE Hardware
+    </span>
+
+    <span style="color:var(--red);">
+      CANADIAN CABINET HARDWARE
+    </span>
+
+  </div>
+
+</footer>
+
+</body>
+</html>

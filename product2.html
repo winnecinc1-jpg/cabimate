@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Allure Collection — Series 11 | CABIMATE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ─── DESIGN TOKENS ─── */
+:root {
+  --red:      #C0001E;
+  --red-dim:  #8a0015;
+  --red-glow: rgba(192,0,30,0.08);
+  --black:    #0a0a0a;
+  --ink:      #1a1a1a;
+  --charcoal: #333333;
+  --smoke:    #666666;
+  --silver:   #999999;
+  --rule:     rgba(0,0,0,0.08);
+  --white:    #ffffff;
+  --offwhite: #f8f7f5;
+  --paper:    #f2f0ed;
+
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --display: 'Bebas Neue', Impact, sans-serif;
+  --sans:    'Montserrat', sans-serif;
+  --nav-h:   72px;
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width:100%; display:block; }
+
+/* ─── CUSTOM CURSOR ─── */
+@media (pointer:fine) {
+  body { cursor: none; }
+  #cur, #cur-ring {
+    position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%); transition: width .2s, height .2s;
+  }
+  #cur { width:8px; height:8px; background: var(--red); }
+  #cur-ring {
+    width:30px; height:30px; z-index:9998;
+    border: 1px solid rgba(192,0,30,0.4);
+    transition: all .15s ease;
+  }
+}
+
+/* ─── BREADCRUMBS ─── */
+.breadcrumb {
+  padding: 18px 60px;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap:10px;
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color: var(--silver);
+}
+.breadcrumb a { color: var(--silver); transition:color .3s; }
+.breadcrumb a:hover { color: var(--red); }
+.breadcrumb .sep { color: var(--red); }
+.breadcrumb .current { color: var(--ink); font-weight:600; }
+
+/* ─── HERO BANNER ─── */
+.coll-hero {
+  background: var(--offwhite);
+  border-bottom: 1px solid var(--rule);
+  padding: 72px 60px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.coll-hero::before {
+  content: 'ALLURE';
+  position: absolute; right: 50px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--display);
+  font-size: 200px; letter-spacing: -6px; line-height: 1;
+  color: rgba(192,0,30,0.04); pointer-events:none;
+  white-space: nowrap;
+}
+.coll-tag {
+  font-size:10px; letter-spacing:5px; text-transform:uppercase;
+  color: var(--red); font-weight:700;
+  display: flex; align-items:center; gap:14px;
+  margin-bottom: 16px;
+}
+.coll-tag::before { content:''; display:block; width:36px; height:1px; background:var(--red); }
+.coll-title {
+  font-family: var(--display);
+  font-size: clamp(60px,8vw,100px);
+  line-height: .92; letter-spacing:1px; color: var(--black);
+  margin-bottom: 20px;
+}
+.coll-title span { color: var(--red); }
+.coll-desc {
+  font-family: var(--serif); font-style:italic;
+  font-size:18px; color: var(--smoke);
+  font-weight:300; line-height:1.85; max-width:500px;
+}
+.coll-meta {
+  display: flex; flex-direction:column; align-items:flex-end; gap:16px;
+  position: relative; z-index:2;
+}
+.coll-meta-item { text-align:right; }
+.coll-meta-item strong {
+  font-family: var(--display); font-size:32px; color:var(--black); display:block; line-height:1;
+}
+.coll-meta-item strong em { color:var(--red); font-style:normal; }
+.coll-meta-item span {
+  font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--silver); font-weight:600;
+}
+.coll-meta-divider { width:60px; height:1px; background:var(--rule); }
+
+/* ─── TEXT MARQUEE ─── */
+.marquee-strip {
+  background: var(--red); padding:12px 0; overflow:hidden; white-space:nowrap;
+}
+.marquee-track {
+  display:inline-block;
+  animation: marquee 28s linear infinite;
+}
+.marquee-track span {
+  font-family: var(--display); font-size:13px;
+  letter-spacing:4px; margin:0 32px; color:rgba(255,255,255,.9);
+}
+@keyframes marquee {
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+
+/* ─── FLOATING TOPIC TABS ─── */
+.tabs-wrap {
+  position: sticky; top: var(--nav-h); z-index:100;
+  background: var(--white);
+  border-bottom: 2px solid var(--rule);
+}
+.tabs-inner {
+  display: flex; align-items:stretch;
+  padding: 0 60px; gap:0;
+  overflow-x: auto; scrollbar-width:none;
+}
+.tabs-inner::-webkit-scrollbar { display:none; }
+
+.tab-btn {
+  position:relative; flex-shrink:0;
+  display: flex; align-items:center; gap:10px;
+  padding: 22px 36px;
+  background:none; border:none; cursor:pointer;
+  font-family: var(--sans); font-size:10px; letter-spacing:3px;
+  text-transform:uppercase; font-weight:600;
+  color: var(--silver); transition: color .3s;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+.tab-btn .tab-icon {
+  width:22px; height:22px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background: var(--paper); transition: background .3s;
+  flex-shrink:0;
+}
+.tab-btn.active .tab-icon { background: var(--red); }
+.tab-btn .tab-icon img { width:11px; height:11px; filter: grayscale(1) brightness(0.5); }
+.tab-btn.active .tab-icon img { filter: brightness(0) invert(1); }
+.tab-count {
+  font-size:9px; background:var(--paper); color:var(--smoke);
+  padding:2px 7px; border-radius:10px; font-weight:700; letter-spacing:1px;
+  transition: background .3s, color .3s;
+}
+.tab-btn.active .tab-count { background:var(--red); color:#fff; }
+
+/* ─── TAB OBJECT LAYOUT PANELS ─── */
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+.overview-section { padding: 80px 60px; }
+
+.overview-intro {
+  display: grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:center; margin-bottom:80px;
+}
+.section-tag {
+  font-size:10px; letter-spacing:5px; text-transform:uppercase;
+  color:var(--red); font-weight:700; margin-bottom:16px;
+  display:flex; align-items:center; gap:12px;
+}
+.section-tag::after { content:''; flex:1; height:1px; background:rgba(192,0,30,.25); max-width:50px; }
+.section-h2 {
+  font-family: var(--display); font-size:clamp(42px,5vw,68px);
+  line-height:1; letter-spacing:1px; color:var(--black); margin-bottom:20px;
+}
+.section-h2 span { color:var(--red); }
+.section-body {
+  font-family: var(--serif); font-style:italic;
+  font-size:17px; color:var(--smoke); font-weight:300; line-height:1.9;
+}
+
+.overview-specs {
+  border: 1px solid var(--rule); padding:40px;
+  display: grid; grid-template-columns:1fr 1fr; gap:28px;
+}
+.spec-row { padding-bottom:20px; border-bottom:1px solid var(--rule); }
+.spec-row:nth-last-child(-n+2) { border-bottom:none; padding-bottom:0; }
+.spec-label {
+  font-size:9px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--red); font-weight:700; margin-bottom:6px;
+}
+.spec-value { font-size:14px; color:var(--charcoal); font-weight:500; line-height:1.5; }
+
+/* ─── PRODUCT LAYOUT SYSTEM GRID (4-COLUMNS FULL WIDTH) ─── */
+.overview-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: transparent;
+}
+
+.ov-card {
+  background: var(--white);
+  padding: 36px 28px 28px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  border: 1px solid transparent;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+/* Selected active card indicator styling */
+.ov-card.active {
+  border-color: var(--black);
+  background: rgba(0, 0, 0, 0.01);
+}
+
+/* Product image baseline alignment states */
+.ov-img {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -55%);
+  width: 80%; height: 160px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.ov-img img {
+  max-height: 100%; max-width: 100%;
+  object-fit: contain;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Full overlay gradient backdrop layer */
+.ov-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.05) 100%);
+  z-index: 2; opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.ov-card:hover::before { opacity: 1; }
+
+/* Structural typography blocks layout configuration */
+.ov-finish {
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); font-weight: 700;
+  position: absolute; top: 36px; left: 28px; z-index: 3;
+  opacity: 0; visibility: hidden;
+  transform: translateY(-5px);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.ov-content {
+  position: relative; z-index: 3;
+  display: flex; flex-direction: column;
+  opacity: 0; visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ov-name {
+  font-family: var(--serif); font-size: 19px; font-weight: 400;
+  color: var(--white); margin-bottom: 4px; line-height: 1.3;
+}
+.ov-sku { font-size: 10px; letter-spacing: 2px; color: var(--silver); margin-bottom: 16px; }
+
+.ov-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.ov-price {
+  font-family: var(--display); font-size: 24px; color: var(--white);
+  display: flex; align-items: baseline; gap: 8px;
+}
+.ov-price del { font-size: 14px; color: var(--silver); font-family: var(--sans); font-weight: 300; }
+.ov-price ins { text-decoration: none; color: #ff4d64; }
+
+.ov-add {
+  background: var(--white); border: 1px solid var(--white); color: var(--black);
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+  padding: 8px 14px; cursor: pointer; font-family: var(--sans);
+  transition: background 0.2s, color 0.2s;
+}
+.ov-add:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+
+/* ─── HOVER BEHAVIOR TARGET STATES ─── */
+.ov-card:hover .ov-finish { opacity: 1; visibility: visible; transform: translateY(0); }
+.ov-card:hover .ov-content { opacity: 1; visibility: visible; transform: translateY(0); }
+
+.ov-card:hover .ov-img {
+  top: 0; left: 0; transform: translate(0, 0);
+  width: 100%; height: 100%;
+}
+.ov-card:hover .ov-img img {
+  transform: scale(1.06);
+  object-fit: cover; width: 100%; height: 100%; max-height: 100%;
+}
+
+/* Decorative structural badges */
+.ov-badge {
+  position: absolute; top: 16px; right: 16px;
+  font-size: 8px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 700; padding: 4px 10px; z-index: 4;
+  transition: opacity 0.3s;
+}
+.ov-card:hover .ov-badge { opacity: 0.15; } /* Fade away slightly on layout zoom interaction */
+
+.badge-new { background: var(--red); color: #fff; }
+.badge-best { background: var(--white); border: 1px solid rgba(192,0,30,.3); color: var(--red); }
+.badge-sale { background: var(--ink); color: #fff; }
+
+/* ─── ELEMENTS REVEAL EFFECTS ─── */
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:.1s; }
+
+/* ─── DYNAMIC AJAX TARGET DESIGN CONTAINER ─── */
+.dynamic-context-target {
+  width: 100%; margin-top: 40px; min-height: 100px;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  border-top: 1px dashed var(--rule);
+  padding-top: 20px;
+}
+
+/* ─── RESPONSIBLE WORK Breakpoints ─── */
+@media (max-width:1200px) {
+  .overview-products { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width:900px) {
+  .nav { padding:0 24px; }
+  .nav-links, .nav-cta { display:none; }
+  .breadcrumb, .coll-hero, .tabs-inner, .overview-section { padding-left:24px; padding-right:24px; }
+  .coll-hero { grid-template-columns:1fr; }
+  .coll-hero::before { font-size:100px; right:20px; }
+  .coll-meta { align-items:flex-start; flex-direction:row; flex-wrap:wrap; gap:24px; }
+  .tab-btn { padding:18px 20px; }
+  .overview-intro { grid-template-columns:1fr; gap:40px; }
+  .overview-products { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width:540px) {
+  .overview-products { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+
+<section class="coll-hero">
+  <div>
+    <div class="coll-tag">Cabimate Collection</div>
+    <h1 class="coll-title"> 6 Precision Profiles<br><span>24 Premium Finishes</span></h1>
+    <p class="coll-desc">
+      Hardware that elevates every surface it touches — from kitchen cabinetry to shower niches.
+    </p>
+  </div>
+  <div class="coll-meta">
+    <div class="coll-meta-item"><strong>24<em>+</em></strong><span>Profiles</span></div>
+    <div class="coll-meta-divider"></div>
+    <div class="coll-meta-item"><strong>5</strong><span>Finishes</span></div>
+    <div class="coll-meta-divider"></div>
+    <div class="coll-meta-item"><strong>CA</strong><span>Canadian</span></div>
+  </div>
+</section>
+
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span>SERIES 11</span><span>·</span><span>CABIMATE</span><span>·</span>
+    <span>KITCHEN HANDLES</span><span>·</span><span>SHOWER HARDWARE</span><span>·</span>
+    <span>MATTE BLACK</span><span>·</span><span>POLISHED CHROME</span><span>·</span>
+    <span>BRUSHED NICKEL</span><span>·</span><span>CANADIAN HARDWARE</span><span>·</span>
+  </div>
+</div>
+
+<div class="tabs-wrap" id="collTabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-tab="overview">Refined Urban <span class="tab-count">4</span></button>
+    <button class="tab-btn" data-tab="kitchen">Industrial Heritage <span class="tab-count">4</span></button>
+    <button class="tab-btn" data-tab="shower">Timeless British <span class="tab-count">4</span></button>
+    <button class="tab-btn" data-tab="bathroom">Clean Contemporary <span class="tab-count">4</span></button>
+    <button class="tab-btn" data-tab="pantry">Metropolitan Luxe<span class="tab-count">4</span></button>
+    <button class="tab-btn" data-tab="finishes">Modern Elegance<span class="tab-count">4</span></button>
+  </div>
+</div>
+
+<div class="tab-panel active" id="panel-overview">
+  <div class="overview-section">
+    <div class="overview-intro reveal">
+      <div>
+        <div class="section-tag">About This Collection</div>
+        <h2 class="section-h2">Refined Urban<br><span>SERIES 1</span></h2>
+        <p class="section-body">
+The Refined Urban Collection combines modern linear styling with soft classic details to create versatile cabinet hardware
+ for contemporary interiors. Featuring sleek silhouettes, balanced proportions, and premium finishes, this collection brings understated elegance and everyday functionality to kitchens, bathrooms, and furniture spaces.
+        </p>
+      </div>
+      <div class="overview-specs reveal reveal-d1">
+        <div class="spec-row"><div class="spec-label">Concept</div><div class="spec-value">Minimalist</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Kitchen · Shower · Bathroom · Pantry</div></div>
+        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Standard M4 Thread · Concealed Screw Option</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob) · 128mm · 160mm · 192mm · 320mm</div></div>
+      </div>
+    </div>
+
+    <div class="overview-products">
+      <div class="ov-card active" data-load="details/overview-card1.html">
+        <div class="ov-finish">HANDLEs</div>
+        <div class="ov-img"><img src="product1.png" alt="Linear Bar"></div>
+        <div class="ov-content">
+          <div class="ov-name">Davids</div>
+          <div class="ov-sku">SKU: A36</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$34.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/overview-card2.html">
+        <span class="ov-badge badge-new">Limited Edtion</span>
+        <div class="ov-finish">HANDLEs · Knobs</div>
+        <div class="ov-img"><img src="product1.png" alt="Davids"></div>
+        <div class="ov-content">
+          <div class="ov-name">Davids</div>
+          <div class="ov-sku">SKU: A36</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$38.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/overview-card3.html">
+        <div class="ov-finish">HANDLEs · Knobs</div>
+        <div class="ov-img"><img src="product1.png" alt="Newry"></div>
+        <div class="ov-content">
+          <div class="ov-name">Newry</div>
+          <div class="ov-sku">SKU: A34</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$18.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/overview-card4.html">
+        <span class="ov-badge badge-sale">Premium</span>
+        <div class="ov-finish">HANDLEs · Knobs</div>
+        <div class="ov-img"><img src="product1.png" alt="Doncaster"></div>
+        <div class="ov-content">
+          <div class="ov-name">Doncaster</div>
+          <div class="ov-sku">SKU: A26</div>
+          <div class="ov-footer"><div class="ov-price"><del>$32.00</del><ins>$26.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-context-target"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-kitchen">
+  <div class="overview-section">
+    <div class="overview-intro">
+      <div>
+        <div class="section-tag">Culinary Spaces</div>
+        <h2 class="section-h2">KITCHEN<br><span>HARDWARE</span></h2>
+        <p class="section-body">
+          Optimized architectural profiles built to withstand high-traffic use. These premium pull structures add clean lines and robust ergonomic balance to modern millwork and cabinet layouts.
+        </p>
+      </div>
+      <div class="overview-specs">
+             <div class="spec-row"><div class="spec-label">Concept</div><div class="spec-value">Minimalist</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Main Cabinets · Integrated Appliances</div></div>
+        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Standard M4 Rear Fix Threading</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">128mm · 160mm · 192mm · 320mm</div></div>
+      </div>
+    </div>
+
+    <div class="overview-products">
+      <div class="ov-card active" data-load="details/kitchen-card1.html">
+        <div class="ov-finish">Matte Black · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Kitchen 1"></div>
+        <div class="ov-content">
+          <div class="ov-name">Pro-Series Statement Pull</div>
+          <div class="ov-sku">SKU: S11-KIT-01</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$42.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/kitchen-card2.html">
+        <div class="ov-finish">Polished Chrome · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Kitchen 2"></div>
+        <div class="ov-content">
+          <div class="ov-name">Reflective Seamless Edge Pull</div>
+          <div class="ov-sku">SKU: S11-KIT-02</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$36.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/kitchen-card3.html">
+        <div class="ov-finish">Antique Brass · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Kitchen 3"></div>
+        <div class="ov-content">
+          <div class="ov-name">Traditional Horizon Bar</div>
+          <div class="ov-sku">SKU: S11-KIT-03</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$45.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/kitchen-card4.html">
+        <div class="ov-finish">Brushed Nickel · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Kitchen 4"></div>
+        <div class="ov-content">
+          <div class="ov-name">Satin Urban T-Bar</div>
+          <div class="ov-sku">SKU: S11-KIT-04</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$39.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-context-target"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-shower">
+  <div class="overview-section">
+    <div class="overview-intro">
+      <div>
+        <div class="section-tag">Shower Application</div>
+        <h2 class="section-h2">SHOWER<br><span>HARDWARE</span></h2>
+        <p class="section-body">
+          Engineered with water-resistant sealing and robust structural components. Series 11 shower hardware provides seamless structural functionality across premium glass panels.
+        </p>
+      </div>
+      <div class="overview-specs">
+        <div class="spec-row"><div class="spec-label">Concept</div><div class="spec-value">Minimalist</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Glass Shower Doors · Wet Environments</div></div>
+        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Glass-Mount Thru-Hole (Water-Tight Washers)</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">Knob · 160mm · 192mm · Back-to-Back Pairs</div></div>
+      </div>
+    </div>
+
+    <div class="overview-products">
+      <div class="ov-card active" data-load="details/shower-card1.html">
+        <div class="ov-finish">Brushed Nickel · Back-to-Back</div>
+        <div class="ov-img"><img src="product1.png" alt="Shower 1"></div>
+        <div class="ov-content">
+          <div class="ov-name">Dual Sided Glass Pull</div>
+          <div class="ov-sku">SKU: S11-SHO-01</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$85.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/shower-card2.html">
+        <div class="ov-finish">Matte Black · Single Sided</div>
+        <div class="ov-img"><img src="product1.png" alt="Shower 2"></div>
+        <div class="ov-content">
+          <div class="ov-name">Aquafit Heavy Duty Rail</div>
+          <div class="ov-sku">SKU: S11-SHO-02</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$72.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/shower-card3.html">
+        <div class="ov-finish">Polished Chrome · Glass Mount</div>
+        <div class="ov-img"><img src="product1.png" alt="Shower 3"></div>
+        <div class="ov-content">
+          <div class="ov-name">Pure-Glass Cylinder Pull</div>
+          <div class="ov-sku">SKU: S11-SHO-03</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$48.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/shower-card4.html">
+        <div class="ov-finish">Satin Brass · Heavy Duty</div>
+        <div class="ov-img"><img src="product1.png" alt="Shower 4"></div>
+        <div class="ov-content">
+          <div class="ov-name">Offset Combo Towel Handle</div>
+          <div class="ov-sku">SKU: S11-SHO-04</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$110.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-context-target"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-bathroom">
+  <div class="overview-section">
+    <div class="overview-intro">
+      <div>
+        <div class="section-tag">Vanity &amp; Bath</div>
+        <h2 class="section-h2">BATHROOM<br><span>ACCESSORIES</span></h2>
+        <p class="section-body">
+          Bring elegant continuity to personal wellness retreats. Crafted to prevent tarnish and moisture wear, these designs blend flawlessly with luxury vanities.
+        </p>
+      </div>
+      <div class="overview-specs">
+               <div class="spec-row"><div class="spec-label">Concept</div><div class="spec-value">Minimalist</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Bathroom Vanities · Linen Towers</div></div>
+        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Standard M4 Threading · Anti-Twist Base Plates</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob) · 96mm · 128mm · 160mm</div></div>
+      </div>
+    </div>
+
+    <div class="overview-products">
+      <div class="ov-card active" data-load="details/bathroom-card1.html">
+        <span class="ov-badge badge-new">New</span>
+        <div class="ov-finish">Polished Chrome · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Bath 1"></div>
+        <div class="ov-content">
+          <div class="ov-name">Luxury Vanity Drawer Pull</div>
+          <div class="ov-sku">SKU: S11-BTH-01</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$29.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/bathroom-card2.html">
+        <div class="ov-finish">Matte Black · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Bath 2"></div>
+        <div class="ov-content">
+          <div class="ov-name">Sub-Zero Geometry Knob</div>
+          <div class="ov-sku">SKU: S11-BTH-02</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$16.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/bathroom-card3.html">
+        <div class="ov-finish">Brushed Nickel · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Bath 3"></div>
+        <div class="ov-content">
+          <div class="ov-name">Continental Tapered Pull</div>
+          <div class="ov-sku">SKU: S11-BTH-03</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$27.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/bathroom-card4.html">
+        <div class="ov-finish">Antique Brass · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Bath 4"></div>
+        <div class="ov-content">
+          <div class="ov-name">Heritage Ornate T-Bar</div>
+          <div class="ov-sku">SKU: S11-BTH-04</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$31.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-context-target"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-pantry">
+  <div class="overview-section">
+    <div class="overview-intro">
+      <div>
+        <div class="section-tag">Utility Storage</div>
+        <h2 class="section-h2">PANTRY &amp;<br><span>UTILITY</span></h2>
+        <p class="section-body">
+          Substantial scale matched with long structural pulls. These extended configurations provide effortless leverage across heavy floor-to-ceiling larder units.
+        </p>
+      </div>
+      <div class="overview-specs">
+                <div class="spec-row"><div class="spec-label">Concept</div><div class="spec-value">Minimalist</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Pantry Doors · Wardrobes · Tall Larder Units</div></div>
+        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Dual M4 Rear-Fixing Configuration</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">320mm · 448mm · Appliance Scale Options</div></div>
+      </div>
+    </div>
+
+    <div class="overview-products">
+      <div class="ov-card active" data-load="details/pantry-card1.html">
+        <div class="ov-finish">Matte Black · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Pantry 1"></div>
+        <div class="ov-content">
+          <div class="ov-name">Over-Scale Larder Pull</div>
+          <div class="ov-sku">SKU: S11-PAN-01</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$68.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/pantry-card2.html">
+        <div class="ov-finish">Brushed Nickel · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Pantry 2"></div>
+        <div class="ov-content">
+          <div class="ov-name">Titan Appliance Pull</div>
+          <div class="ov-sku">SKU: S11-PAN-02</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$74.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/pantry-card3.html">
+        <span class="ov-badge badge-new">New</span>
+        <div class="ov-finish">Antique Brass · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Pantry 3"></div>
+        <div class="ov-content">
+          <div class="ov-name">Estate Vault Long-Pull</div>
+          <div class="ov-sku">SKU: S11-PAN-03</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$82.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/pantry-card4.html">
+        <div class="ov-finish">Polished Chrome · Series 11</div>
+        <div class="ov-img"><img src="product1.png" alt="Pantry 4"></div>
+        <div class="ov-content">
+          <div class="ov-name">Linear Tall-Boy Bar</div>
+          <div class="ov-sku">SKU: S11-PAN-04</div>
+          <div class="ov-footer"><div class="ov-price"><ins>$70.00</ins></div><button class="ov-add">View Details</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-context-target"></div>
+  </div>
+</div>
+
+<div class="tab-panel" id="panel-finishes">
+  <div class="overview-section">
+    <div class="overview-intro">
+      <div>
+        <div class="section-tag">Surface Finishes</div>
+        <h2 class="section-h2">PREMIUM<br><span>METALLICS</span></h2>
+        <p class="section-body">
+          Anodized protective layers applied via premium electroplating methods. Each proprietary finish is tested rigorously against friction and scratching.
+        </p>
+      </div>
+      <div class="overview-specs">
+        <div class="spec-row"><div class="spec-label">Process</div><div class="spec-value">Electroplated Coating · Matte PVD Treatment</div></div>
+        <div class="spec-row"><div class="spec-label">Options</div><div class="spec-value">Matte Black · Polished Chrome · Brushed Nickel · Antique Brass</div></div>
+        <div class="spec-row"><div class="spec-label">Maintenance</div><div class="spec-value">Microfiber Clean · Chemical Free Cleansing</div></div>
+        <div class="spec-row"><div class="spec-label">Warranty</div><div class="spec-value">5-Year Structural Integrity Guarantee</div></div>
+      </div>
+    </div>
+
+    <div class="overview-products">
+      <div class="ov-card active" data-load="details/finishes-card1.html">
+        <div class="ov-finish">Proprietary Finishing</div>
+        <div class="ov-img"><img src="product1.png" alt="Finish 1"></div>
+        <div class="ov-content">
+          <div class="ov-name">Matte Deep Black Anodized</div>
+          <div class="ov-sku">CODE: FIN-MB</div>
+          <div class="ov-footer"><div class="ov-price"><span>PVD Layer</span></div><button class="ov-add">View Swatch</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/finishes-card2.html">
+        <div class="ov-finish">Proprietary Finishing</div>
+        <div class="ov-img"><img src="product1.png" alt="Finish 2"></div>
+        <div class="ov-content">
+          <div class="ov-name">Polished Chrome Electroplate</div>
+          <div class="ov-sku">CODE: FIN-PC</div>
+          <div class="ov-footer"><div class="ov-price"><span>Mirror Gloss</span></div><button class="ov-add">View Swatch</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/finishes-card3.html">
+        <div class="ov-finish">Proprietary Finishing</div>
+        <div class="ov-img"><img src="product1.png" alt="Finish 3"></div>
+        <div class="ov-content">
+          <div class="ov-name">Brushed Aged Antique Brass</div>
+          <div class="ov-sku">CODE: FIN-AB</div>
+          <div class="ov-footer"><div class="ov-price"><span>Satin Tint</span></div><button class="ov-add">View Swatch</button></div>
+        </div>
+      </div>
+      <div class="ov-card" data-load="details/finishes-card4.html">
+        <div class="ov-finish">Proprietary Finishing</div>
+        <div class="ov-img"><img src="product1.png" alt="Finish 4"></div>
+        <div class="ov-content">
+          <div class="ov-name">Brushed Corrosion-Proof Nickel</div>
+          <div class="ov-sku">CODE: FIN-BN</div>
+          <div class="ov-footer"><div class="ov-price"><span>Satin Grain</span></div><button class="ov-add">View Swatch</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="dynamic-context-target"></div>
+  </div>
+</div>
+
+<script>
+/* ─── CUSTOM CURSOR ENGINE ─── */
+const cur = document.getElementById('cur');
+const curRing = document.getElementById('cur-ring');
+if (cur && window.matchMedia('(pointer:fine)').matches) {
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+    setTimeout(() => { curRing.style.left = e.clientX+'px'; curRing.style.top = e.clientY+'px'; }, 80);
+  });
+}
+
+/* ─── INTERSECTION SCROLL OBSERVER ─── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ─── ASYNC DOM BINDING SYSTEM ─── */
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // Asynchronous fragment execution pipeline
+  async function loadComponentContent(panelElement) {
+    const targetContainer = panelElement.querySelector(".dynamic-context-target");
+    const activeCard = panelElement.querySelector(".ov-card.active");
+    
+    if (!targetContainer || !activeCard) return;
+    
+    const fileRoute = activeCard.getAttribute("data-load");
+    if (!fileRoute) return;
+
+    try {
+      const response = await fetch(fileRoute);
+      if (!response.ok) throw new Error(`Target missing file path context: ${fileRoute}`);
+      
+      const contentMarkup = await response.text();
+
+      // Fluid layout escape transition
+      targetContainer.style.opacity = "0";
+      targetContainer.style.transform = "translateY(8px)";
+
+      setTimeout(() => {
+        targetContainer.innerHTML = contentMarkup;
+        // Animated layout entry sequence
+        targetContainer.style.opacity = "1";
+        targetContainer.style.transform = "translateY(0px)";
+      }, 150);
+
+    } catch (err) {
+      console.error("Component initialization exception:", err);
+      targetContainer.innerHTML = `<p style="padding:40px; font-size:10px; text-transform:uppercase; letter-spacing:2px; color:var(--red); text-align:center;">Component Module Error — Path Unresolved</p>`;
+    }
+  }
+
+  // Initial document execution cycle sync
+  const initialActivePanel = document.querySelector(".tab-panel.active");
+  if (initialActivePanel) {
+    loadComponentContent(initialActivePanel);
+  }
+
+  // Set event bindings globally across matching panels
+  document.querySelectorAll(".tab-panel").forEach(panel => {
+    const contextCards = panel.querySelectorAll(".ov-card");
+    
+    contextCards.forEach(card => {
+      card.addEventListener("click", () => {
+        if (card.classList.contains("active")) return;
+
+        contextCards.forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+
+        loadComponentContent(panel);
+      });
+    });
+  });
+
+  /* ─── TABS SWITCH EVENT ENGINE ─── */
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      
+      btn.classList.add('active');
+      const targetPanel = document.getElementById('panel-' + btn.dataset.tab);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        loadComponentContent(targetPanel);
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
