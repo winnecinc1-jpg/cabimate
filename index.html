@@ -70,19 +70,23 @@
     padding: 0 60px;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(192, 0, 30, 0.06) 0%, transparent 70%),
-      repeating-linear-gradient(
-        90deg,
-        transparent 0px,
-        transparent 59px,
-        rgba(255,255,255,0.015) 59px,
-        rgba(255,255,255,0.015) 60px
-      );
-  }
+ .hero-bg{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.9) 0%,
+      rgba(0,0,0,0.75) 35%,
+      rgba(0,0,0,0.4) 65%,
+      rgba(0,0,0,0.15) 100%
+    ),
+    url('Newport.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  z-index:0;
+}
 
   .hero-line {
     position: absolute;
@@ -209,6 +213,9 @@
     gap: 2px;
     opacity: 0.85;
   }
+
+
+  /*hero carousel*/
 
   .handle-card {
     background: var(--carbon);
@@ -875,18 +882,11 @@
   inset:0;
 
   background:
-
   linear-gradient(
     90deg,
     rgba(0,0,0,.95) 0%,
     rgba(0,0,0,.85) 35%,
-    rgba(0,0,0,.45) 65%,
-    rgba(0,0,0,.35) 100%
-  ),
-
-  radial-gradient(
-    circle at right,
-    rgba(210,0,35,.15),
+    rgba(0,0,0,.55) 45%,
     transparent 55%
   );
 
@@ -1362,68 +1362,6 @@
 
 /* HERO CAROUSEL */
 
-.hero-carousel{
-  position:absolute;
-  right:0%;
-  top:50%;
-  transform:translateY(-50%);
-width:55%;
-max-width:800px;
-  height:720px;
-  overflow:hidden;
-  border-radius:28px;
-  z-index:2;
-  border:1px solid rgba(255,255,255,0.06);
-  background:#111;
-}
-
-.carousel-track{
-  display:flex;
-  width:300%;
-  height:100%;
-  animation:slideCarousel 12s infinite;
-}
-
-.carousel-track img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  flex-shrink:0;
-}
-
-/* CAROUSEL ANIMATION */
-
-@keyframes slideCarousel{
-
-  0%{
-    transform:translateX(0%);
-  }
-
-  30%{
-    transform:translateX(0%);
-  }
-
-  35%{
-    transform:translateX(-100%);
-  }
-
-  65%{
-    transform:translateX(-100%);
-  }
-
-  70%{
-    transform:translateX(-200%);
-  }
-
-  95%{
-    transform:translateX(-200%);
-  }
-
-  100%{
-    transform:translateX(0%);
-  }
-
-}
 
 /* HERO STATS */
 
@@ -2284,18 +2222,30 @@ max-width:800px;
   </div>
 
   <!-- IMAGE CAROUSEL -->
-  <div class="hero-carousel">
+<div class="hero-carousel">
 
-    <div class="carousel-track">
+  <div class="carousel-track">
 
-      <img src="product1.png" alt="Cabimate Product 1">
-      <img src="product2.png" alt="Cabimate Product 2">
-      <img src="product4.png" alt="Cabimate Product 3">
-      <img src="product5.png" alt="Cabimate Product 4">
+    <div class="carousel-slide">
+      <img src="tower.jpeg" alt="Cabimate Product">
+    </div>
 
+    <div class="carousel-slide">
+      <img src="tower2.jpeg" alt="Cabimate Product">
+    </div>
+
+    <div class="carousel-slide">
+      <img src="tower.jpeg" alt="Cabimate Product">
+    </div>
+
+    <div class="carousel-slide">
+      <img src="tower2.jpeg" alt="Cabimate Product">
+    </div>
     </div>
 
   </div>
+
+</div>
 
   <!-- STATS -->
   <div class="hero-stats">
@@ -2585,7 +2535,6 @@ max-width:800px;
         Discover More
       </a>
     </div>
-
   </div>
 
   <!-- SECTION 5 -->
