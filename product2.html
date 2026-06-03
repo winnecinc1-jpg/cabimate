@@ -141,7 +141,9 @@ img { max-width:100%; display:block; }
 
 /* ─── FLOATING TOPIC TABS ─── */
 .tabs-wrap {
-  position: sticky; top: var(--nav-h); z-index:100;
+  position: sticky;
+  top: 91px; /* same as navbar height */
+  z-index: 100;
   background: var(--white);
   border-bottom: 2px solid var(--rule);
 }
@@ -370,12 +372,18 @@ img { max-width:100%; display:block; }
   .nav { padding:0 24px; }
   .nav-links, .nav-cta { display:none; }
   .breadcrumb, .coll-hero, .tabs-inner, .overview-section { padding-left:24px; padding-right:24px; }
+  
   .coll-hero { grid-template-columns:1fr; }
   .coll-hero::before { font-size:100px; right:20px; }
   .coll-meta { align-items:flex-start; flex-direction:row; flex-wrap:wrap; gap:24px; }
   .tab-btn { padding:18px 20px; }
   .overview-intro { grid-template-columns:1fr; gap:40px; }
   .overview-products { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width:768px){
+  .tabs-wrap{
+    top:66px;
+  }
 }
 @media (max-width:540px) {
   .overview-products { grid-template-columns: 1fr; }
@@ -423,12 +431,12 @@ img { max-width:100%; display:block; }
 
 <div class="tabs-wrap" id="collTabs">
   <div class="tabs-inner">
-    <button class="tab-btn active" data-tab="overview">Refined Urban <span class="tab-count">4</span></button>
-    <button class="tab-btn" data-tab="kitchen">Industrial Heritage <span class="tab-count">4</span></button>
-    <button class="tab-btn" data-tab="shower">Timeless British <span class="tab-count">4</span></button>
-    <button class="tab-btn" data-tab="bathroom">Clean Contemporary <span class="tab-count">4</span></button>
-    <button class="tab-btn" data-tab="pantry">Metropolitan Luxe<span class="tab-count">4</span></button>
-    <button class="tab-btn" data-tab="finishes">Modern Elegance<span class="tab-count">4</span></button>
+    <button class="tab-btn active" data-tab="overview">Refined Urban <span class="tab-count"></span></button>
+    <button class="tab-btn" data-tab="kitchen">Industrial Heritage <span class="tab-count"></span></button>
+    <button class="tab-btn" data-tab="shower">Timeless British <span class="tab-count"></span></button>
+    <button class="tab-btn" data-tab="bathroom">Clean Contemporary <span class="tab-count"></span></button>
+    <button class="tab-btn" data-tab="pantry">Metropolitan Luxe<span class="tab-count"></span></button>
+    <button class="tab-btn" data-tab="finishes">Modern Elegance<span class="tab-count"></span></button>
   </div>
 </div>
 
