@@ -229,9 +229,18 @@ img { max-width:100%; display:block; }
 /* ─── PRODUCT LAYOUT SYSTEM GRID (4-COLUMNS FULL WIDTH) ─── */
 .overview-products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  background: transparent;
+}
+
+/* A28 card */
+.overview-products .featured {
+  grid-column: 1 / -1; /* spans all 3 columns */
+}
+
+.featured .ov-img img {
+  height: 300px;
+  object-fit: contain;
 }
 
 .ov-card {
@@ -387,6 +396,17 @@ img { max-width:100%; display:block; }
 }
 @media (max-width:540px) {
   .overview-products { grid-template-columns: 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .overview-products {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-products .featured {
+    grid-column: auto;
+  }
 }
 </style>
 
@@ -563,14 +583,14 @@ The Refined Urban Collection combines modern linear styling with soft classic de
       </div>
     </div>
 
-    <div class="overview-products">
-      <div class="ov-card active" data-load="details/overview-card3.html">
-            <span class="ov-badge badge-new">A28</span>
-        <div class="ov-finish">A28</div>
-        <div class="ov-img"><img src="product1.png" alt="Shower 1"></div>
-        <div class="ov-content">
-          <div class="ov-name">York</div>
-          <div class="ov-sku">A28</div>
+ <div class="overview-products">
+  <div class="ov-card featured active" data-load="details/overview-card3.html">
+    <span class="ov-badge badge-new">A28</span>
+    <div class="ov-finish">A28</div>
+    <div class="ov-img"><img src="product1.png" alt="Shower 1"></div>
+    <div class="ov-content">
+      <div class="ov-name">York</div>
+      <div class="ov-sku">A28</div>
         </div>                    
       </div>
       <div class="ov-card" data-load="details/shower-card2.html">
