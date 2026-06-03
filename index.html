@@ -215,7 +215,45 @@
   }
 
 
-  /*hero carousel*/
+  /*hero image*/
+  .hero-products{
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:55%;
+  height:720px;
+
+  display:flex;
+  gap:20px;
+  align-items:center;
+  justify-content:center;
+
+  z-index:5;
+}
+
+.product-image{
+  flex:1;
+  height:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:28px;
+  overflow:hidden;
+}
+
+.product-image img{
+  max-width:100%;
+  max-height:100%;
+
+  width:auto;
+  height:auto;
+
+  display:block;
+}
 
   .handle-card {
     background: var(--carbon);
@@ -2222,27 +2260,14 @@
   </div>
 
   <!-- IMAGE CAROUSEL -->
-<div class="hero-carousel">
+<div class="hero-products">
 
-  <div class="carousel-track">
+  <div class="product-image">
+    <img src="tower.jpeg" alt="Cabimate Product">
+  </div>
 
-    <div class="carousel-slide">
-      <img src="tower.jpeg" alt="Cabimate Product">
-    </div>
-
-    <div class="carousel-slide">
-      <img src="tower2.jpeg" alt="Cabimate Product">
-    </div>
-
-    <div class="carousel-slide">
-      <img src="tower.jpeg" alt="Cabimate Product">
-    </div>
-
-    <div class="carousel-slide">
-      <img src="tower2.jpeg" alt="Cabimate Product">
-    </div>
-    </div>
-
+  <div class="product-image">
+    <img src="tower2.jpeg" alt="Cabimate Product">
   </div>
 
 </div>
