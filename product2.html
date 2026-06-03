@@ -146,9 +146,16 @@ img { max-width:100%; display:block; }
   border-bottom: 2px solid var(--rule);
 }
 .tabs-inner {
-  display: flex; align-items:stretch;
-  padding: 0 60px; gap:0;
-  overflow-x: auto; scrollbar-width:none;
+  display: flex;
+  align-items: stretch;
+  padding: 20px 80px 0; /* top right/left bottom */
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs-inner::-webkit-scrollbar {
+  display: none;
 }
 .tabs-inner::-webkit-scrollbar { display:none; }
 
