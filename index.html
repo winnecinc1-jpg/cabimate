@@ -1710,16 +1710,18 @@
     border-radius:22px;
   }
 
-  .catalogue-title{
-    font-size:clamp(42px,10vw,60px);
-    line-height:.95;
-    margin-bottom:18px;
-  }
+.catalogue-title{
+    font-size: clamp(42px, 8vw, 60px);
+    line-height: .95;
+    word-break: break-word;
+    overflow-wrap: break-word;
 
-  .catalogue-body{
-    font-size:16px;
-    line-height:1.8;
-  }
+    max-width: 100%;
+}
+
+.catalogue-content{
+    min-width: 0;
+}
 
   .btn-primary{
     margin-top:18px;
