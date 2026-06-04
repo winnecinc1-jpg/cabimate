@@ -7,15 +7,23 @@ class SharedNavbar extends HTMLElement {
           <img src="cabimate.png" alt="CABIMATE Logo" class="logo-img">
         </a>
 
-        <ul class="nav-links">
-          <li><a href="/product2">Collection</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
+<ul class="nav-links">
+  <li><a href="/product2">Collection</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
 
-        <a href="/contact" class="nav-cta">
-          Shop with Trade Price
-        </a>
+<div class="nav-search">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search SKU or Product"
+  >
+</div>
+
+<a href="/contact" class="nav-cta">
+  Shop with Trade Price
+</a>
 
         <button class="hamburger" aria-label="Menu">
           <span></span>
