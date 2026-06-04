@@ -3,52 +3,89 @@
 
 /*nav search*/
 
+/* Search Container */
 .nav-search {
   position: relative;
   margin: 0 20px;
 }
 
+/* Search Input */
 .nav-search input {
-  width: 220px;
-  padding: 10px 14px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  width: 260px;
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  outline: none;
 }
 
+.nav-search input::placeholder {
+  color: #999;
+}
+
+.nav-search input:focus {
+  border-color: #b08968;
+  box-shadow: 0 0 0 4px rgba(176, 137, 104, 0.12);
+}
+
+/* Dropdown */
 .search-results {
   display: none;
   position: absolute;
-  top: 45px;
+  top: 52px;
   left: 0;
-  width: 280px;
+  width: 320px;
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  max-height: 300px;
-  overflow-y: auto;
+  border-radius: 16px;
+  overflow: hidden;
   z-index: 9999;
-  box-shadow: 0 5px 20px rgba(0,0,0,.1);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
+/* Search Result Item */
 .search-item {
   display: block;
-  padding: 12px;
+  padding: 14px 18px;
   text-decoration: none;
   color: #222;
-  border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.search-item:last-child {
+  border-bottom: none;
 }
 
 .search-item:hover {
-  background: #f5f5f5;
+  background: #f8f6f3;
 }
 
+/* Product Name */
+.search-item strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* SKU */
 .search-item small {
-  color: #777;
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }
 
+/* No Results */
 .no-result {
-  padding: 12px;
-  color: #777;
+  padding: 18px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
 }
 /* Layout Positioning — Transformed to Sticky Execution Context */
 /* =========================
