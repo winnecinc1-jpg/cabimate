@@ -1,4 +1,55 @@
 /* NAV */
+
+
+/*nav search*/
+
+.nav-search {
+  position: relative;
+  margin: 0 20px;
+}
+
+.nav-search input {
+  width: 220px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.search-results {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 280px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 9999;
+  box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
+.search-item {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #222;
+  border-bottom: 1px solid #eee;
+}
+
+.search-item:hover {
+  background: #f5f5f5;
+}
+
+.search-item small {
+  color: #777;
+}
+
+.no-result {
+  padding: 12px;
+  color: #777;
+}
 /* Layout Positioning — Transformed to Sticky Execution Context */
 /* =========================
    NAVBAR
