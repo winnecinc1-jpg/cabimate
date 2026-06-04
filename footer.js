@@ -3,6 +3,8 @@ class SharedFooter extends HTMLElement {
     this.innerHTML = `
       <footer>
         <div class="footer-top">
+
+          <!-- Brand -->
           <div>
             <div class="footer-brand">CAB<span>I</span>MATE</div>
             <p class="footer-tagline">
@@ -11,38 +13,48 @@ class SharedFooter extends HTMLElement {
             <span class="footer-badge">cabimatehardware.com</span>
           </div>
 
-          <div>
-            <div class="footer-col-title">Collection</div>
-            <ul class="footer-links">
-              <li><a href="/product2.html">Series 11</a></li>
-              <li><a href="/product2.html">Kitchen Handles</a></li>
-              <li><a href="/product2.html">Shower Hardware</a></li>
-              <li><a href="/product2.html">Knobs & Pulls</a></li>
-              <li><a href="/product2.html">Bar Handles</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="footer-col-title">Finishes</div>
-            <ul class="footer-links">
-              <li><a href="/product2.html">Matte Black</a></li>
-              <li><a href="/product2.html">Polished Chrome</a></li>
-              <li><a href="/product2.html">Brushed Nickel</a></li>
-              <li><a href="/product2.html">Antique Brass</a></li>
-              <li><a href="/product2.html">Rose Gold</a></li>
-            </ul>
-          </div>
-
+          <!-- Company -->
           <div>
             <div class="footer-col-title">Company</div>
             <ul class="footer-links">
               <li><a href="/about.html">About Cabimate</a></li>
-              <li><a href="/contact.html">Dealer Locator</a></li>
-              <li><a href="/contact.html">Trade Program</a></li>
               <li><a href="/contact.html">Contact</a></li>
-              <li><a href="/catalogue.html">Catalogue</a></li>
+              <li><a href="/contact.html">Trade Program</a></li>
+              <li><a href="/product2.html">Collections</a></li>
             </ul>
           </div>
+
+          <!-- Showrooms -->
+          <div>
+            <div class="footer-col-title">Showroom & Store</div>
+
+            <div class="footer-location">
+              <h4>Markham</h4>
+              <p>Mon to Sat | 9:00 AM - 5:30 PM</p>
+              <p>500 Esna Park Dr. Unit 1-4,<br>
+              Markham, Ontario, L3R 1H5 Canada</p>
+            </div>
+
+            <div class="footer-location">
+              <h4>Vaughan</h4>
+              <p>Mon to Fri | 8:00 AM - 5:30 PM</p>
+              <p>Sat | 9:00 AM - 5:30 PM</p>
+              <p>65 Bowes Road, Unit 8,<br>
+              Vaughan, Ontario, L4K 1H5 Canada</p>
+            </div>
+
+            <div class="footer-location">
+              <h4>Mississauga</h4>
+              <p>Mon to Sat | 9:00 AM - 5:30 PM</p>
+              <p>1530 Drew Road, Unit 17-18,<br>
+              Mississauga, Ontario, L5S 1W8 Canada</p>
+            </div>
+
+            <p class="footer-note">
+              *Except public holidays
+            </p>
+          </div>
+
         </div>
 
         <div class="footer-bottom">
