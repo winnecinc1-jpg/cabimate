@@ -24,36 +24,23 @@ class SharedFooter extends HTMLElement {
             </ul>
           </div>
 
-          <!-- Showrooms -->
-          <div>
-            <div class="footer-col-title">Showroom & Store</div>
+<div>
+  <div class="footer-col-title">Contact Us</div>
 
-            <div class="footer-location">
-              <h4>Markham</h4>
-              <p>Mon to Sat | 9:00 AM - 5:30 PM</p>
-              <p>500 Esna Park Dr. Unit 1-4,<br>
-              Markham, Ontario, L3R 1H5 Canada</p>
-            </div>
+  <div class="footer-newsletter-heading">
+    Email Us For<br>
+    Business Inquiries
+  </div>
 
-            <div class="footer-location">
-              <h4>Vaughan</h4>
-              <p>Mon to Fri | 8:00 AM - 5:30 PM</p>
-              <p>Sat | 9:00 AM - 5:30 PM</p>
-              <p>65 Bowes Road, Unit 8,<br>
-              Vaughan, Ontario, L4K 1H5 Canada</p>
-            </div>
+  <p class="footer-newsletter-text">
+    Whether you're a dealer, designer, contractor, or builder, our team is here to help with product recommendations, quotations, and project support.
+  </p>
 
-            <div class="footer-location">
-              <h4>Mississauga</h4>
-              <p>Mon to Sat | 9:00 AM - 5:30 PM</p>
-              <p>1530 Drew Road, Unit 17-18,<br>
-              Mississauga, Ontario, L5S 1W8 Canada</p>
-            </div>
-
-            <p class="footer-note">
-              *Except public holidays
-            </p>
-          </div>
+  <a href="mailto:sales@cabimatehardware.com" class="footer-contact-btn">
+    Contact Our Team
+  </a>
+</div>
+</div>
 
         </div>
 

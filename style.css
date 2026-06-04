@@ -456,8 +456,8 @@ footer {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 80px;
   margin-bottom: 60px;
 }
 
@@ -548,10 +548,12 @@ footer {
     padding: 60px 25px 30px;
   }
 
+@media (max-width: 900px) {
   .footer-top {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 40px;
   }
+}
 
   .footer-bottom {
     flex-direction: column;
@@ -569,7 +571,85 @@ footer {
     font-size: 28px;
   }
 }
+.footer-newsletter-box {
+  max-width: 420px;
+}
 
+.footer-newsletter-heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.footer-newsletter-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-newsletter-form input {
+  flex: 1;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--white);
+  outline: none;
+  font-size: 14px;
+}
+
+.footer-newsletter-form input::placeholder {
+  color: var(--muted);
+}
+
+.footer-newsletter-form input:focus {
+  border-color: var(--red);
+}
+
+.footer-newsletter-form button {
+  height: 48px;
+  padding: 0 28px;
+  border: none;
+  border-radius: 999px;
+  background: #ff6a21;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.footer-newsletter-form button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.footer-contact-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #5a0000, #8b0000);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 0, 0, 0.25);
+}
 
 /* HERO STATS */
 
