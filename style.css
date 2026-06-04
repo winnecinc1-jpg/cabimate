@@ -578,7 +578,7 @@ footer {
 .footer-newsletter-heading {
   font-size: 22px;
   font-weight: 700;
-  color: var(--white);
+  color: firebrick;
   margin-bottom: 8px;
 }
 
