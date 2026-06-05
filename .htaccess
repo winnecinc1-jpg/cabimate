@@ -1,10 +1,13 @@
 RewriteEngine On
 
-# Redirect .html URLs to extensionless URLs
-RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+# Redirect /page.html -> /page
+RewriteCond %{THE_REQUEST} \s/+([^.]+)\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
 
-# Internally rewrite extensionless URLs to .html
+# /product2/leeds -> /details/leeds.html
+RewriteRule ^product2/([A-Za-z0-9-]+)/?$ details/$1.html [L,QSA]
+
+# Internal rewrite for extensionless URLs
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^/.]+)/?$ $1.html [L]
