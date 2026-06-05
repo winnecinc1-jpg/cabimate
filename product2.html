@@ -239,6 +239,12 @@ img { max-width:100%; display:block; }
   grid-column: 1 / -1; /* spans all 3 columns */
 }
 
+.overview-products-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
 .featured .ov-img img {
   height: 300px;
   object-fit: contain;
@@ -377,6 +383,12 @@ img { max-width:100%; display:block; }
 /* ─── RESPONSIBLE WORK Breakpoints ─── */
 @media (max-width:1200px) {
   .overview-products { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .overview-products-4 {
+    grid-template-columns: 1fr;
+  }
 }
 @media (max-width:900px) {
   .nav { padding:0 24px; }
@@ -649,7 +661,7 @@ The Refined Urban Collection combines modern linear styling with soft classic de
         <span class="ov-badge badge-new">A30</span>
         <div class="ov-finish">A30</div>
         <div class="ov-img"><img src="NorwichA30.png" alt="Norwich"></div>
-        <div class="ov-content">z
+        <div class="ov-content">
           <div class="ov-name">Norwich</div>
           <div class="ov-sku">SKU: A30</div>
         </div>
@@ -749,8 +761,8 @@ The Refined Urban Collection combines modern linear styling with soft classic de
       </div>
     </div>
 
-    <div class="overview-products">
-     <div class="ov-card active" data-load="details/Doncaster.html">
+    <div class="overview-products-4">
+     <div class="ov-card featured active" data-load="details/Doncaster.html">
         <span class="ov-badge badge-new">A26</span>
         <div class="ov-finish">A26</div>
         <div class="ov-img"><img src="DoncasterA26.png" alt="Finish 1"></div>
