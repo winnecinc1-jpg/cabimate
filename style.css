@@ -448,6 +448,14 @@ max-width:800px;
    FOOTER
 ========================== */
 
+.footer-logo{
+  width: 180px;   /* adjust size */
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+
 footer {
   background: var(--carbon);
   padding: 80px 60px 40px;
@@ -563,6 +571,9 @@ footer {
 }
 
 @media (max-width: 600px) {
+
+
+  
   .footer-top {
     grid-template-columns: 1fr;
   }

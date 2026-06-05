@@ -4,14 +4,16 @@ class SharedFooter extends HTMLElement {
       <footer>
         <div class="footer-top">
 
-          <!-- Brand -->
-          <div>
-            <div class="footer-brand">CAB<span>I</span>MATE</div>
-            <p class="footer-tagline">
-              Charm your cabinet. Define your space. Canadian cabinet hardware, crafted for distinction.
-            </p>
-            <span class="footer-badge">cabimatehardware.com</span>
-          </div>
+<!-- Brand -->
+<div>
+  <img src="cabimate.png" alt="CABIMATE Logo" class="footer-logo">
+
+  <p class="footer-tagline">
+    Charm your cabinet. Define your space. Canadian cabinet hardware, crafted for distinction.
+  </p>
+
+  <span class="footer-badge">cabimatehardware.com</span>
+</div>
 
           <!-- Company -->
           <div>
