@@ -516,103 +516,83 @@
    FINISH SECTION (MODERN CAROUSEL STYLE)
 ====================================================== */
 
-.finish-section {
-  padding: 120px 60px;
-  background: var(--deep);
+.finish-carousel{
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  padding:20px 0 10px;
+
+  scrollbar-width:none;
+  -ms-overflow-style:none;
 }
 
-/* HEADER */
-.finish-header {
-  text-align: left;
-  margin-bottom: 60px;
+.finish-carousel::-webkit-scrollbar{
+  display:none;
 }
 
-.finish-header .section-heading {
-  font-family: var(--display);
-  font-size: clamp(42px, 5vw, 72px);
-  line-height: 1;
-  margin-top: 10px;
+.finish-card{
+  flex:0 0 320px;
+  scroll-snap-align:center;
+
+  background:#0c0c0c;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  overflow:hidden;
+
+  transition:
+    transform .4s ease,
+    border-color .4s ease,
+    box-shadow .4s ease;
 }
 
-.finish-header span {
-  color: var(--red);
+.finish-card:hover{
+  transform:translateY(-8px);
+  border-color:#b00020;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
 
-/* CAROUSEL */
-.finish-carousel {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+.finish-image{
+  aspect-ratio:1/1;
+  overflow:hidden;
 }
 
-/* hide scrollbar */
-.finish-carousel::-webkit-scrollbar {
-  display: none;
+.finish-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .6s ease;
 }
 
-/* CARD */
-.finish-card {
-  min-width: 320px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-
-  border-radius: 18px;
-  overflow: hidden;
-  background: #111;
-  position: relative;
-
-  transition: transform 0.4s ease;
-  cursor: pointer;
+.finish-card:hover .finish-image img{
+  transform:scale(1.05);
 }
 
-.finish-card:hover {
-  transform: translateY(-6px);
+.finish-info{
+  padding:22px;
+  text-align:center;
 }
 
-/* IMAGE */
-.finish-image {
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
+.finish-name{
+  font-size:22px;
+  color:#fff;
+  font-family:var(--serif);
+  margin-bottom:6px;
 }
 
-.finish-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.finish-code{
+  font-size:11px;
+  letter-spacing:3px;
+  color:#9b9b9b;
+  text-transform:uppercase;
 }
 
-.finish-card:hover .finish-image img {
-  transform: scale(1.05);
+.finish-card{
+  opacity:.75;
 }
 
-/* INFO */
-.finish-info {
-  padding: 18px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.finish-name {
-  font-size: 14px;
-  color: var(--chrome);
-  letter-spacing: 0.5px;
-}
-
-.finish-code {
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--muted);
-}
-
-/* ACTIVE CARD */
-.finish-card.active {
-  border: 1px solid rgba(192, 0, 30, 0.5);
+.finish-card:hover{
+  opacity:1;
 }
 
 /* ======================================================
@@ -2876,6 +2856,38 @@
   reveals.forEach(el => observer.observe(el));
 </script>
 
+<script>
+const carousel = document.querySelector('.finish-carousel');
+
+let autoScroll = setInterval(moveCarousel, 3000);
+
+function moveCarousel() {
+  carousel.scrollBy({
+    left: 340,
+    behavior: 'smooth'
+  });
+
+  if (
+    carousel.scrollLeft + carousel.clientWidth >=
+    carousel.scrollWidth - 20
+  ) {
+    setTimeout(() => {
+      carousel.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
+    }, 1000);
+  }
+}
+
+carousel.addEventListener('mouseenter', () => {
+  clearInterval(autoScroll);
+});
+
+carousel.addEventListener('mouseleave', () => {
+  autoScroll = setInterval(moveCarousel, 3000);
+});
+</script>
 <script>
 
 /* ==========================================
