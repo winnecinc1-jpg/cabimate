@@ -40,7 +40,7 @@ class SharedFooter extends HTMLElement {
 
   </p>
 
-  <a href="mailto:sales@cabimatehardware.com" class="footer-contact-btn">
+  <a href="mailto:marketing@winnecinc.com" class="footer-contact-btn">
     Contact Our Team
   </a>
 </div>
