@@ -35,7 +35,7 @@ class SharedFooter extends HTMLElement {
   </div>
 
   <p class="footer-newsletter-text">
-    Whether you're planning a project or exploring possibilities, our team is available to provide guidance, tailored recommendations, and dedicated support every step of the way.
+    Premium kitchen cabinet hardware, cabinet pulls, and cabinet knobs crafted for modern interiors. Our team is available to assist with product selection, quotations, and project support.
 
 
   </p>
