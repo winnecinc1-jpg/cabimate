@@ -35,7 +35,9 @@ class SharedFooter extends HTMLElement {
   </div>
 
   <p class="footer-newsletter-text">
-    Whether you're a dealer, designer, contractor, or builder, our team is here to help with product recommendations, quotations, and project support.
+    Whether you're planning a project or exploring possibilities, our team is available to provide guidance, tailored recommendations, and dedicated support every step of the way.
+
+
   </p>
 
   <a href="mailto:sales@cabimatehardware.com" class="footer-contact-btn">
