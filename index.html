@@ -117,7 +117,7 @@
     align-items: center;
     gap: 16px;
   }
-  
+
   .hero-eyebrow::before {
     content: '';
     display: block;
@@ -1530,8 +1530,10 @@
 .catalogue-text{
   position:relative;
   z-index:4;
-  max-width:500px;
+  max-width:600px;
 }
+
+
 
 .catalogue-tag{
   display:inline-block;
@@ -1547,18 +1549,20 @@
 
 .catalogue-title{
   font-family:var(--display);
-  font-size:clamp(90px,9vw,150px);
-  line-height:.86;
+  font-size:clamp(60px, 7vw, 120px);
+  line-height:.9;
   margin-bottom:26px;
   color:#fff;
+
+  word-break:break-word;
+  overflow-wrap:break-word;
 }
 
 .catalogue-body{
   font-family:var(--serif);
-  font-size:20px;
-  line-height:2;
+  font-size:22px;
+  line-height:1.8;
   color:#bcbcbc;
-  max-width:430px;
   margin-bottom:40px;
 }
 
