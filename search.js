@@ -8,7 +8,7 @@ const products = [
       "A25-A18"
     ],
     name: "belfast",
-    url: "/details/Belfast.html"
+    url: "/products2/Belfast.html"
   },
 
   {
