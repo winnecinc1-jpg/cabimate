@@ -225,20 +225,25 @@
     border-radius: 4px;
   }
 
-  .matrix-swatch-frame {
-    height: 300px;
-    background: var(--paper);
-    overflow: hidden;
-    margin-bottom: 16px;
-    border-radius: 2px;
-  }
+.matrix-swatch-frame {
+  height: 300px;
+  margin-bottom: 16px;
+  border-radius: 2px;
 
-  .matrix-swatch-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  overflow: visible;
+}
+
+.matrix-swatch-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* shows full image */
+}
   .matrix-title {
     font-size: 13px;
     font-weight: 600;
@@ -474,16 +479,16 @@
       <!-- Pairing Block 1 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="A22160ABR.png" alt="Solid Oak Swatch">
+          <img src="Sheffieldseries.png" alt="Solid Oak Swatch">
         </div>
-         <span class="arch-label primary">SKUA22</span>
+         <span class="arch-label primary">A22160ABR</span>
         <h4 class="matrix-title">Sheffield</h4>
-        <p class="matrix-desc">Matte black anchors open grained natural wood perfectly.</p>
+        <p class="matrix-desc">Amber Brass cabinet handles.</p>
       </div>
       <!-- Pairing Block 2 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="SheffieldA22.png" alt="Stone Textures">
+          <img src="A22knobs.png" alt="Stone Textures">
         </div>
         <span class="arch-label primary">SKUA22</span>
         <h4 class="matrix-title">Sheffield</h4>
@@ -499,6 +504,8 @@
         <p class="matrix-desc">Seamless hardware cohesion from kitchen into wet spaces.</p>
       </div>
     </div>
+
+    
   </div>
 
   <hr class="arch-divider">
