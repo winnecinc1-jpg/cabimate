@@ -373,22 +373,16 @@
     font-style: italic;
   }
 
-  .gallery-detail-frame {
-    background: var(--paper);
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    overflow: hidden;
-  }
+.gallery-detail-frame {
+  width: 100%;
+}
 
-  .gallery-detail-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+.gallery-detail-frame img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
   /* ─── MEDIA OVERRIDES FOR ARCHITECTURAL RESPONSIVENESS ─── */
   @media (max-width: 900px) {
     .arch-grid-row.grid-hero, 
@@ -481,7 +475,7 @@
         <div class="matrix-swatch-frame">
           <img src="Sheffieldseries.png" alt="Solid Oak Swatch">
         </div>
-         <span class="arch-label primary">A22160ABR</span>
+         <span class="arch-label primary">SKUA22</span>
         <h4 class="matrix-title">Sheffield</h4>
         <p class="matrix-desc">Amber Brass cabinet handles.</p>
       </div>
@@ -541,8 +535,8 @@
           <p>"The tactile sensation of using solid hardware every morning completely changes how a custom piece of millwork feels."</p>
         </div>
         <div class="gallery-detail-frame">
-          <img src="SheffieldA22.png
-      </div>
+          <img src="SheffieldA22.png" alt="Detail Close-Up Hardware Component Frame">
+        </div>
 
     </div>
   </div>
