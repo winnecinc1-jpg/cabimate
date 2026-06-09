@@ -216,16 +216,62 @@ img { max-width:100%; display:block; }
 }
 
 .overview-specs {
-  border: 1px solid var(--rule); padding:40px;
-  display: grid; grid-template-columns:1fr 1fr; gap:28px;
+  border: 1px solid var(--rule);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+  text-align: center;
 }
-.spec-row { padding-bottom:20px; border-bottom:1px solid var(--rule); }
-.spec-row:nth-last-child(-n+2) { border-bottom:none; padding-bottom:0; }
+
+.spec-row {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spec-row:nth-last-child(-n+2) {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 .spec-label {
-  font-size:9px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--red); font-weight:700; margin-bottom:6px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 700;
+  margin-bottom: 10px;
 }
-.spec-value { font-size:14px; color:var(--charcoal); font-weight:500; line-height:1.5; }
+
+.spec-value {
+  font-size: 14px;
+  color: var(--charcoal);
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .overview-specs {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .spec-row:nth-last-child(-n+2) {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .spec-row:last-child {
+    border-bottom: none;
+  }
+}
 
 /* ─── PRODUCT LAYOUT SYSTEM GRID (4-COLUMNS FULL WIDTH) ─── */
 .overview-products {
@@ -511,7 +557,7 @@ The Refined Urban Collection combines modern linear styling with soft classic de
         <div class="spec-row"><div class="spec-label">SKU</div><div class="spec-value">A21 A22 A23</div></div>
         <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Kitchen · Shower · Bathroom · Pantry</div></div>
         <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Standard M4 Thread · Concealed Screw Option</div></div>
-        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob) · 128mm · 160mm · 192mm · 320mm</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob) · 128mm · 160mm · 224mm · 320mm · A18 (18"Appliance Pull)</div></div>
       </div>
     </div>
 
