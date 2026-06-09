@@ -73,7 +73,11 @@
   }
 
   .arch-label.primary { color: var(--red); }
-  .arch-label.muted { color: var(--silver); }
+.arch-label.muted {
+  display: block;
+  color: var(--silver);
+  text-align: center;
+}
 
   .showcase-text {
     font-family: var(--serif);
@@ -108,14 +112,15 @@
     border-radius: 4px;
   }
 
-  .arch-heading-large {
-    font-family: var(--display);
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: var(--black);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
+.arch-heading-large {
+  font-family: var(--display);
+  font-size: 36px;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
 
   .spec-table {
     display: flex;
@@ -140,10 +145,11 @@
     font-weight: 500;
   }
 
-  .spec-value {
-    font-weight: 600;
-    color: var(--black);
-  }
+.spec-value {
+  font-weight: 600;
+  color: var(--black);
+  text-align: center;
+}
 
   .editorial-blueprint-gallery {
     text-align: center;
@@ -430,8 +436,8 @@
       
       <div class="spec-table">
         <div class="spec-row">
-          <span class="spec-label">Design Style</span>
-          <span class="spec-value">Modern Linear with Soft Classic Edges</span>
+          <span class="spec-label">Finished</span>
+          <span class="spec-value">Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">IDEAS</span>
