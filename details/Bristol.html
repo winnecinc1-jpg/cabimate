@@ -73,7 +73,11 @@
   }
 
   .arch-label.primary { color: var(--red); }
-  .arch-label.muted { color: var(--silver); }
+.arch-label.muted {
+  display: block;
+  color: var(--silver);
+  text-align: center;
+}
 
   .showcase-text {
     font-family: var(--serif);
@@ -108,14 +112,15 @@
     border-radius: 4px;
   }
 
-  .arch-heading-large {
-    font-family: var(--display);
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: var(--black);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
+.arch-heading-large {
+  font-family: var(--display);
+  font-size: 36px;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
 
   .spec-table {
     display: flex;
@@ -140,25 +145,36 @@
     font-weight: 500;
   }
 
-  .spec-value {
-    font-weight: 600;
-    color: var(--black);
-  }
+.spec-value {
+  font-weight: 600;
+  color: var(--black);
+  text-align: center;
+}
+.editorial-blueprint-gallery {
+  text-align: center;
+  position: relative;
+  padding: 40px;
+  border: 1px dashed var(--silver);
+  background: #fff;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
-  .editorial-blueprint-gallery {
-    text-align: center;
-    position: relative;
-    padding: 40px;
-    border: 1px dashed var(--silver);
-    background: #fafafa;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-  }
-
+.editorial-blueprint-gallery img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: none;
+  opacity: 1;
+}
   .blueprint-tag {
     position: absolute;
     top: 15px;
@@ -224,7 +240,8 @@
     padding: 20px;
     border-radius: 4px;
   }
- .matrix-swatch-frame {
+
+.matrix-swatch-frame {
   height: 300px;
   margin-bottom: 16px;
   border-radius: 2px;
@@ -232,6 +249,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: visible;
 }
 
@@ -284,6 +302,7 @@
   }
 
   .gallery-canvas-main {
+    background: var(--paper);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -370,22 +389,16 @@
     font-style: italic;
   }
 
-  .gallery-detail-frame {
-    background: var(--paper);
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    overflow: hidden;
-  }
+.gallery-detail-frame {
+  width: 100%;
+}
 
-  .gallery-detail-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+.gallery-detail-frame img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
   /* ─── MEDIA OVERRIDES FOR ARCHITECTURAL RESPONSIVENESS ─── */
   @media (max-width: 900px) {
     .arch-grid-row.grid-hero, 
@@ -410,12 +423,12 @@
   <!-- ─── SECTION 1: EDITORIAL HERO & SIGNATURE ─── -->
   <div class="arch-grid-row grid-hero">
     <div class="editorial-image-frame">
-      <img class="showcase-img" src="BristolA24.png" alt="Linear Architectural Bar Installation">
+      <img class="showcase-img" src="A24bristolOK.png" alt="Linear Architectural Bar Installation">
     </div>
     <div class="editorial-text-aside">
-      <span class="arch-label primary">Bristol // Refined Urban</span>
+      <span class="arch-label primary">Sheffield // Refined Urban</span>
       <p class="showcase-text">
-        "The Refined Urban – Bristol Series blends clean linear form with subtle classic detailing to create sophisticated kitchen hardware for modern interiors. Designed with balanced proportions and a minimalist architectural profile, the Bristol Series delivers understated elegance, premium craftsmanship, and timeless functionality for contemporary cabinetry."
+        "The Refined Urban – Sheffield Series blends clean linear form with subtle classic detailing to create sophisticated kitchen hardware for modern interiors. Designed with balanced proportions and a minimalist architectural profile, the Davids Series delivers understated elegance, premium craftsmanship, and timeless functionality for contemporary cabinetry."
       </p>
       <span class="editorial-signature">CABIMATE</span>
     </div>
@@ -428,13 +441,13 @@
     
     <!-- Technical Specifications Breakdown -->
     <div class="editorial-technical-specs">
-      <span class="arch-label muted">Bristol COLLECTION</span>
+      <span class="arch-label muted">Sheffield COLLECTION</span>
       <h3 class="arch-heading-large">Handle & Knob Details</h3>
       
       <div class="spec-table">
         <div class="spec-row">
-          <span class="spec-label">Design Style</span>
-          <span class="spec-value">Modern Linear with Soft Classic Edges</span>
+          <span class="spec-label">Finished</span>
+          <span class="spec-value">Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">IDEAS</span>
@@ -456,9 +469,9 @@
   <div class="blueprint-tag">FIG 11.4 — STRUCTURAL CROSS SECTION</div>
   
   <!-- Native image component wrapper targeting asset directory -->
-  <img src="BristolA24.png" alt="Structural Profiling Diagram Blueprint" class="blueprint-img">
+  <img src="A24bristolknobs.png" alt="Structural Profiling Diagram Blueprint" class="blueprint-img">
   
-  <h3 class="arch-heading-small">Bristol</h3>
+  <h3 class="arch-heading-small">Sheffield</h3>
 </div>
 
   </div>
@@ -468,39 +481,41 @@
   <!-- ─── SECTION 4: COMPLEMENTARY SPATIAL PAIRINGS ─── -->
   <div class="editorial-cross-sell">
     <div class="cross-sell-header">
-      <span class="arch-label primary">CURATED PALETTES</span>
-      <h3 class="arch-heading-xl">Spatial Integration Pairings</h3>
+      <span class="arch-label primary">6 Types 4 Finishes</span>
+      <h3 class="arch-heading-xl">Sheffield Cabinet Handles</h3>
     </div>
     
     <div class="matrix-grid">
       <!-- Pairing Block 1 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="BristolA24.png" alt="Solid Oak Swatch">
+          <img src="A25Belfastknobs.png" alt="Solid Oak Swatch">
         </div>
-         <span class="arch-label primary">SKUA24</span>
-        <h4 class="matrix-title">Bristol</h4>
-        <p class="matrix-desc">Matte black anchors open grained natural wood perfectly.</p>
+         <span class="arch-label primary">SKUA22</span>
+        <h4 class="matrix-title">Sheffield</h4>
+        <p class="matrix-desc">Amber Brass cabinet handles.</p>
       </div>
       <!-- Pairing Block 2 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="BristolA24.png" alt="Stone Textures">
+          <img src="A25Belfastbsnfinished.png" alt="Stone Textures">
         </div>
-        <span class="arch-label primary">SKUA24</span>
-        <h4 class="matrix-title">Bristol</h4>
+        <span class="arch-label primary">SKUA22</span>
+        <h4 class="matrix-title">Sheffield</h4>
         <p class="matrix-desc">High contrast minimalist styling configuration.</p>
       </div>
       <!-- Pairing Block 3 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="BristolA24.png" alt="Companion Finish">
+          <img src="A25Belfastseries.png" alt="Companion Finish">
         </div>
-        <span class="arch-label primary">SKUA24</span>
-        <h4 class="matrix-title">Bristol</h4>
+        <span class="arch-label primary">SKUA22</span>
+        <h4 class="matrix-title">Sheffield</h4>
         <p class="matrix-desc">Seamless hardware cohesion from kitchen into wet spaces.</p>
       </div>
     </div>
+
+    
   </div>
 
   <hr class="arch-divider">
@@ -509,8 +524,8 @@
   <div class="editorial-gallery-wall">
     <div class="gallery-intro">
       <span class="arch-label muted">CONTEXT ARCHITECTURE</span>
-      <h3 class="arch-heading-xl" style="line-height: 1;">Architectural Project Context Focus Gallery</h3>
-      <p class="gallery-intro-sub">Captured on location. A study on clean horizontal shadows, hidden joins, and linear hardware flow.</p>
+      <h3 class="arch-heading-xl" style="line-height: 1;">SHEFFIELD COLLECTION</h3>
+      <p class="gallery-intro-sub">A study in geometry, proportion, and material expression. Sheffield introduces a bold visual rhythm through its crisp square profile and understated detailing, creating a refined focal point within contemporary cabinetry.</p>
     </div>
 
     <!-- Asymmetrical dynamic grid frame layout system -->
@@ -518,14 +533,15 @@
       
       <!-- Primary Atmospheric Text Canvas Box Frame -->
       <div class="gallery-canvas-main">
-        <div class="watermark-text">CUBIC FRAME</div>
+        <div class="watermark-text">SHEFFIELD COLLECTION</div>
         <div class="canvas-content-top">
-          <h4>The Open Concept Axis</h4>
-          <p>By avoiding protruding framing overlays, Series 11 stays completely flush within shadow gap channels.</p>
+          <h4>The Geometry of Simplicity</h4>
+          <p>Defined by clean edges and balanced proportions, Sheffield brings structure and visual clarity to millwork compositions. 
+            Its versatile silhouette complements both minimalist and transitional interiors while maintaining a distinctly architectural character.</p>
         </div>
         <div class="canvas-meta-footer">
           <span class="meta-title">Location Profile</span>
-          <span class="meta-value">Huron House Residence Interior Installation</span>
+          <span class="meta-value">Private Residence Interior Installation</span>
         </div>
       </div>
 
@@ -533,12 +549,11 @@
       <div class="gallery-stack-aside">
         <div class="quote-card">
           <span style="font-size: 8px; color: var(--red); letter-spacing: 3px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">02 / VERTICAL REVEAL</span>
-          <p>"The tactile sensation of using solid hardware every morning completely changes how a custom piece of millwork feels."</p>
+          <p>"The subtle weight and precision of Sheffield transforms everyday interactions into a more considered experience, elevating the character of custom cabinetry through thoughtful design.</p>
         </div>
         <div class="gallery-detail-frame">
-          <img src="BristolA24.png" alt="Detail Close-Up Hardware Component Frame">
+          <img src="BelfastA25.png" alt="Detail Close-Up Hardware Component Frame">
         </div>
-      </div>
 
     </div>
   </div>
