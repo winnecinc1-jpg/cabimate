@@ -419,6 +419,35 @@ footer{
   max-width:700px;
 }
 
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #7a0c0c;   /* dark red */
+  color: #ffffff;        /* white arrow */
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+  z-index: 9999;
+}
+
+#backToTop:hover {
+  background: #a31212;   /* lighter red on hover */
+  transform: translateY(-3px);
+}
+
+#backToTop:active {
+  transform: scale(0.95);
+}
+
 </style>
 
 <!-- Link to your centralized master stylesheet -->
@@ -650,10 +679,24 @@ footer{
 
   </div>
 
+    <button id="backToTop">↑</button>
+
 </section>
 
   <script src="navbar.js"></script>
   <script src="/search.js"></script>
+
+  <script>
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  backToTop.style.display = window.scrollY > 300 ? "flex" : "none";
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
 </body>
 
 <shared-footer></shared-footer>
