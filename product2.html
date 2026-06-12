@@ -343,6 +343,27 @@ img { max-width:100%; display:block; }
   object-fit: contain;
 }
 
+.ov-imgnew {
+  position: absolute;
+  inset: 0; /* replaces top/left/transform completely */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px; /* creates breathing room inside frame */
+
+  overflow: hidden; /* keeps clean editorial crop behavior */
+}
+
+.ov-imgnew img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  display: block;
+}
+
 /* Full overlay gradient backdrop layer */
 .ov-card::before {
   content: ''; position: absolute; inset: 0;
@@ -667,9 +688,9 @@ The Refined Urban Collection combines modern linear styling with soft classic de
       </div>
       <div class="overview-specs">
              <div class="spec-row"><div class="spec-label">SKU</div><div class="spec-value">A24 A25 A43</div></div>
-        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Main Cabinets · Integrated Appliances</div></div>
-        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Standard M4 Rear Fix Threading</div></div>
-        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">128mm · 160mm · 192mm · 320mm</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Kitchen · Shower · Bathroom · Pantry</div></div>
+        <div class="spec-row"><div class="spec-label">Finishes</div><div class="spec-value"></div>Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome</div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob) · 128mm · 160mm · 192mm · 320mm · A18 (18"Appliance Pull)</div></div>
       </div>
     </div>
 
@@ -719,9 +740,9 @@ The Refined Urban Collection combines modern linear styling with soft classic de
       </div>
       <div class="overview-specs">
         <div class="spec-row"><div class="spec-label">SKU</div><div class="spec-value">A28 A32 A33 A37</div></div>
-        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Glass Shower Doors · Wet Environments</div></div>
-        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Glass-Mount Thru-Hole (Water-Tight Washers)</div></div>
-        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">Knob · 160mm · 192mm · Back-to-Back Pairs</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Kitchen · Shower · Bathroom · Pantry</div></div>
+        <div class="spec-row"><div class="spec-label">Finishes</div><div class="spec-value">Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome · Green · White · Blue</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">Knob · 160mm · 192mm · 320mm</div></div>
       </div>
     </div>
 
@@ -729,7 +750,7 @@ The Refined Urban Collection combines modern linear styling with soft classic de
   <div class="ov-card featured active" data-load="details/York.html">
     <span class="ov-badge badge-new">A28</span>
     <div class="ov-finish">A28</div>
-    <div class="ov-img"><img src="YorkA28.png" alt="York"></div>
+    <div class="ov-imgnew"><img src="YorkA28.png" alt="York"></div>
     <div class="ov-content">
       <div class="ov-name">York</div>
       <div class="ov-sku">A28</div>
@@ -779,9 +800,9 @@ The Refined Urban Collection combines modern linear styling with soft classic de
       </div>
       <div class="overview-specs">
                <div class="spec-row"><div class="spec-label">SKU</div><div class="spec-value">A30 A40 A42</div></div>
-        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Bathroom Vanities · Linen Towers</div></div>
-        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Standard M4 Threading · Anti-Twist Base Plates</div></div>
-        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob) · 96mm · 128mm · 160mm</div></div>
+        <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Kitchen · Shower · Bathroom · Pantry</div></div>
+        <div class="spec-row"><div class="spec-label">Finishes</div><div class="spec-value">Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome · Green · White · Blue</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">000 (Knob)· 32mm · 96mm · 128mm · 160mm· 320mm</div></div>
       </div>
     </div>
 
@@ -832,8 +853,8 @@ The Refined Urban Collection combines modern linear styling with soft classic de
       <div class="overview-specs">
                 <div class="spec-row"><div class="spec-label">SKU</div><div class="spec-value">A31 A38 A39</div></div>
         <div class="spec-row"><div class="spec-label">Application</div><div class="spec-value">Pantry Doors · Wardrobes · Tall Larder Units</div></div>
-        <div class="spec-row"><div class="spec-label">Mounting</div><div class="spec-value">Dual M4 Rear-Fixing Configuration</div></div>
-        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value">320mm · 448mm · Appliance Scale Options</div></div>
+        <div class="spec-row"><div class="spec-label">Finishes</div><div class="spec-value">Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome · Gunpower</div></div>
+        <div class="spec-row"><div class="spec-label">Sizes (CC)</div><div class="spec-value"> 000mm(knobs)· 128mm  · 160mm · 192mm · 320mm · 12"Appliance Pull </div></div>
       </div>
     </div>
 
