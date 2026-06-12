@@ -1,549 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belfast Collection</title>
+
 <style>
-  /* ─── CORE EDITORIAL VARIABLES & TYPOGRAPHY ─── */
-  :root {
-    --white: #ffffff;
-    --offwhite: #fdfdfd;
-    --paper: #f7f7f7;
-    --black: #111111;
-    --ink: #1a1a1a;
-    --charcoal: #333333;
-    --smoke: #666666;
-    --silver: #999999;
-    --rule: #eaeaea;
-    --red: #a13d2d;
-    
-    /* Typography Stacks mimicking studiovarey-ca-huronhouse */
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --serif: "Times New Roman", Times, Baskerville, Georgia, serif;
-    --display: "Helvetica Neue", Arial, sans-serif;
-  }
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#777;
+  --line:#eaeaea;
+  --accent:#a13d2d;
 
-  /* ─── LAYOUT STRUCTURAL BLOCKS ─── */
-  .architectural-showcase-wrapper {
-    padding: 60px 0;
-    background: var(--white);
-    font-family: var(--sans);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .arch-grid-row {
-    display: grid;
-    gap: 60px;
-    margin-bottom: 100px;
-    align-items: start;
-  }
-
-  .grid-hero {
-    grid-template-columns: 1.2fr 1fr;
-  }
-
-  .grid-specs {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  /* ─── SECTION 1: HERO & DIALOGUE ─── */
-  .editorial-image-frame {
-    position: relative;
-    overflow: hidden;
-    background: var(--offwhite);
-    border-radius: 4px;
-  }
-
-  .showcase-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: grayscale(15%);
-  }
-
-  .editorial-text-aside {
-    padding-top: 40px;
-    max-width: 420px;
-  }
-
-  .arch-label {
-    font-size: 9px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: block;
-    margin-bottom: 24px;
-  }
-
-  .arch-label.primary { color: var(--red); }
-  .arch-label.muted { color: var(--silver); }
-
-  .showcase-text {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.75;
-    color: var(--ink);
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-
-  .editorial-signature {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--silver);
-    font-weight: 600;
-    display: block;
-  }
-
-  .arch-divider {
-    border: none;
-    border-top: 1px solid var(--rule);
-    margin-bottom: 80px;
-  }
-
-  /* ─── SECTION 2 & 3: TECH SPECS & DIAGRAMS ─── */
-  .editorial-technical-specs {
-    background: var(--offwhite);
-    padding: 50px;
-    border: 1px solid rgba(0,0,0,0.04);
-    border-radius: 4px;
-  }
-
-  .arch-heading-large {
-    font-family: var(--display);
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: var(--black);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
-
-  .spec-table {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .spec-row {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    padding-bottom: 10px;
-    font-size: 12px;
-  }
-
-  .spec-row.last {
-    border-bottom: none;
-  }
-
-  .spec-label {
-    color: var(--smoke);
-    font-weight: 500;
-  }
-
-  .spec-value {
-    font-weight: 600;
-    color: var(--black);
-  }
-
-  .editorial-blueprint-gallery {
-    text-align: center;
-    position: relative;
-    padding: 40px;
-    border: 1px dashed var(--silver);
-    background: #fafafa;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-  }
-
-  .blueprint-tag {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 8px;
-    font-family: monospace;
-    color: var(--silver);
-    letter-spacing: 1px;
-  }
-.blueprint-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  opacity: 0.85;
+  --serif:"Times New Roman", serif;
+  --sans:-apple-system, BlinkMacSystemFont, "Segoe UI", Arial;
 }
 
-  .arch-heading-small {
-  font-family: var(--display);
-  font-size: 16px;
-  letter-spacing: 3px;
-  color: var(--charcoal);
-  text-transform: uppercase;
-  margin-top: 30px; /* space above title */
-  margin-bottom: 6px;
-  }
-
-  .arch-caption {
-    font-size: 11px;
-    color: var(--smoke);
-    max-width: 320px;
-    line-height: 1.5;
-  }
-
-  /* ─── SECTION 4: SPATIAL PAIRINGS MATRICES ─── */
-  .editorial-cross-sell {
-    margin-bottom: 100px;
-  }
-
-  .cross-sell-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .arch-heading-xl {
-    font-family: var(--display);
-    font-size: 42px;
-    letter-spacing: 1px;
-    color: var(--black);
-    text-transform: uppercase;
-  }
-
-  .matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  .matrix-card {
-    text-align: left;
-    background: var(--white);
-    border: 1px solid var(--rule);
-    padding: 20px;
-    border-radius: 4px;
-  }
-
- .matrix-swatch-frame {
-  height: 300px;
-  margin-bottom: 16px;
-  border-radius: 2px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.matrix-swatch-frame img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain; /* shows full image */
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.6;
 }
-  .matrix-title {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
+
+/* CONTAINER */
+.page{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+}
+
+/* TYPOGRAPHY */
+.kicker{
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+.h1{
+  font-size:44px;
+  font-weight:400;
+  letter-spacing:1px;
+}
+
+.h2{
+  font-size:26px;
+  font-weight:400;
+}
+
+.serif{
+  font-family:var(--serif);
+  font-style:italic;
+}
+
+/* HERO */
+.hero{
+  margin-top:40px;
+}
+
+.hero img{
+  width:100%;
+  height:78vh;
+  object-fit:cover;
+}
+
+.hero-text{
+  margin-top:30px;
+  max-width:650px;
+}
+
+/* DIVIDER */
+hr{
+  border:none;
+  border-top:1px solid var(--line);
+  margin:90px 0;
+}
+
+/* GRID */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+
+/* STORY */
+.story p{
+  font-family:var(--serif);
+  font-size:18px;
+  line-height:1.8;
+  color:#222;
+}
+
+/* IMAGE */
+.image-block img{
+  width:100%;
+  display:block;
+}
+
+/* SPECS */
+.specs{
+  font-size:13px;
+}
+
+.spec-row{
+  display:flex;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.spec-row span:first-child{
+  color:var(--muted);
+}
+
+/* PRODUCT GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+  margin-top:30px;
+}
+
+.card img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+}
+
+.card h4{
+  margin:12px 0 6px;
+  font-weight:500;
+}
+
+.card p{
+  font-size:12px;
+  color:var(--muted);
+  font-style:italic;
+}
+
+/* QUOTE SECTION */
+.stack{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.quote{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:18px;
+  line-height:1.8;
+  color:#333;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .split,
+  .stack{
+    grid-template-columns:1fr;
+    gap:40px;
   }
 
-  .matrix-desc {
-    font-size: 11px;
-    color: var(--smoke);
-    font-family: var(--serif);
-    font-style: italic;
+  .grid{
+    grid-template-columns:1fr;
   }
 
-  /* ─── SECTION 5: GALLERY WALL IMAGERY ─── --> */
-  .editorial-gallery-wall {
-    margin-bottom: 40px;
+  .hero img{
+    height:55vh;
   }
 
-  .gallery-intro {
-    max-width: 550px;
-    margin-bottom: 60px;
+  .h1{
+    font-size:34px;
   }
-
-  .gallery-intro-sub {
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--smoke);
-    font-size: 16px;
-    margin-top: 14px;
-    line-height: 1.6;
-  }
-
-  .gallery-masonry-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 40px;
-    align-items: stretch;
-  }
-
-  .gallery-canvas-main {
-    background: var(--paper);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 40px;
-    min-height: 420px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-  }
-
-  .watermark-text {
-    font-family: var(--display);
-    font-size: 80px;
-    color: rgba(0,0,0,0.03);
-    position: absolute;
-    bottom: -10px;
-    right: 10px;
-    font-weight: 900;
-    pointer-events: none;
-  }
-
-  .canvas-content-top {
-    max-width: 280px;
-    z-index: 2;
-  }
-
-  .canvas-content-top h4 {
-    font-family: var(--display);
-    font-size: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  .canvas-content-top p {
-    font-size: 12px;
-    color: var(--charcoal);
-    line-height: 1.7;
-  }
-
-  .canvas-meta-footer {
-    border-left: 2px solid var(--red);
-    padding-left: 20px;
-    margin-top: 40px;
-    z-index: 2;
-  }
-
-  .meta-title {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-  }
-
-  .meta-value {
-    font-size: 13px;
-    font-family: var(--serif);
-    font-style: italic;
-    color: var(--smoke);
-  }
-
-  .gallery-stack-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .quote-card {
-    background: var(--offwhite);
-    padding: 30px;
-    border-left: 1px solid var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 0 4px 4px 0;
-  }
-
-  .quote-card p {
-    font-family: var(--serif);
-    font-size: 15px;
-    color: var(--ink);
-    line-height: 1.6;
-    font-style: italic;
-  }
-
-  .gallery-detail-frame {
-    background: var(--paper);
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .gallery-detail-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* ─── MEDIA OVERRIDES FOR ARCHITECTURAL RESPONSIVENESS ─── */
-  @media (max-width: 900px) {
-    .arch-grid-row.grid-hero, 
-    .arch-grid-row.grid-specs { 
-      grid-template-columns: 1fr !important; 
-      gap: 40px !important; 
-      margin-bottom: 60px !important; 
-    }
-    .gallery-masonry-grid { 
-      grid-template-columns: 1fr !important; 
-      gap: 30px !important; 
-    }
-    .matrix-grid { 
-      grid-template-columns: 1fr !important; 
-    }
-  }
+}
 </style>
+</head>
 
-<!-- Container mapped to the strict, airy minimalism of screencapture-studiovarey-ca-huronhouse-2026-05-28-10_43_40.jpg -->
-<div class="architectural-showcase-wrapper">
+<body>
 
-  <!-- ─── SECTION 1: EDITORIAL HERO & SIGNATURE ─── -->
-  <div class="arch-grid-row grid-hero">
-    <div class="editorial-image-frame">
-      <img class="showcase-img" src="YorkA28.png" alt="Linear Architectural Bar Installation">
-    </div>
-    <div class="editorial-text-aside">
-      <span class="arch-label primary">York // Refined Urban</span>
-      <p class="showcase-text">
-        "YorkYorkYork."
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="A25Belfastknobs3.png" alt="Belfast Collection Hero">
+
+    <div class="hero-text">
+      <div class="kicker">Belfast // Industrial Heritage</div>
+
+      <h1 class="h1 serif">
+        Industrial heritage reinterpreted for contemporary interiors.
+      </h1>
+
+      <p class="serif" style="font-size:18px; margin-top:15px; color:#333;">
+        The Belfast collection balances precision and restraint — designed for timeless architectural spaces.
       </p>
-      <span class="editorial-signature">CABIMATE</span>
     </div>
-  </div>
+  </section>
 
-  <hr class="arch-divider">
+  <hr>
 
-  <!-- ─── SECTION 2 & 3: TECHNICAL INTEGRATION & COMPONENT DIAGRAM ─── -->
-  <div class="arch-grid-row grid-specs">
-    
-    <!-- Technical Specifications Breakdown -->
-    <div class="editorial-technical-specs">
-      <span class="arch-label muted">York COLLECTION</span>
-      <h3 class="arch-heading-large">Handle & Knob Details</h3>
-      
-      <div class="spec-table">
-        <div class="spec-row">
-          <span class="spec-label">Design Style</span>
-          <span class="spec-value">Modern Linear with Soft Classic Edges</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">IDEAS</span>
-          <span class="spec-value">Kitchen . Shower</span>
-        </div>
-        <div class="spec-row">
-          <span class="spec-label">Handle Profile</span>
-          <span class="spec-value">Slim Rectilinear Bar Design</span>
-        </div>
-        <div class="spec-row last">
-          <span class="spec-label">Matching Components</span>
-          <span class="spec-value">Cabinet Handles & Round Knobs</span>
-        </div>
+  <!-- STORY + IMAGE -->
+  <section class="split">
+
+    <div class="story">
+      <div class="kicker">Context Architecture</div>
+
+      <p>
+        Defined by clean geometry and refined proportions, Belfast introduces a quiet industrial language into modern interiors. Each piece is considered not as hardware, but as part of architectural composition.
+      </p>
+    </div>
+
+    <div class="image-block">
+      <img src="A25Belfastknobs2.png" alt="Blueprint Detail">
+    </div>
+
+  </section>
+
+  <hr>
+
+  <!-- SPECIFICATIONS -->
+  <section class="split">
+
+    <div>
+      <div class="kicker">Specifications</div>
+      <h2 class="h2">Handle Details</h2>
+    </div>
+
+    <div class="specs">
+
+      <div class="spec-row">
+        <span>Finish</span>
+        <span>Brass · Black · Nickel · Chrome</span>
       </div>
+
+      <div class="spec-row">
+        <span>Application</span>
+        <span>Kitchen · Bathroom</span>
+      </div>
+
+      <div class="spec-row">
+        <span>Form</span>
+        <span>Linear cylindrical profile</span>
+      </div>
+
+      <div class="spec-row">
+        <span>System</span>
+        <span>Handles & Knobs</span>
+      </div>
+
     </div>
 
-<!-- Dimensional Diagrams Blueprint Frame -->
-<div class="editorial-blueprint-gallery">
-  <div class="blueprint-tag">FIG 11.4 — STRUCTURAL CROSS SECTION</div>
-  
-  <!-- Native image component wrapper targeting asset directory -->
-  <img src="YorkA28.png" alt="Structural Profiling Diagram Blueprint" class="blueprint-img">
-  
-  <h3 class="arch-heading-small">York</h3>
+  </section>
+
+  <hr>
+
+  <!-- PRODUCT VARIANTS -->
+  <section>
+    <div class="kicker">Collection</div>
+    <h2 class="h1">Belfast Variants</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="A25Belfastknobs.png" alt="">
+        <h4>Belfast A25</h4>
+        <p>Amber brass finish interpretation</p>
+      </div>
+
+      <div class="card">
+        <img src="A25Belfastbsnfinished.png" alt="">
+        <h4>Belfast A25</h4>
+        <p>Minimal contrast architectural finish</p>
+      </div>
+
+      <div class="card">
+        <img src="A25Belfastseries.png" alt="">
+        <h4>Belfast Series</h4>
+        <p>Unified system across kitchen & wet spaces</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- FINAL EDITORIAL STATEMENT -->
+  <section class="stack">
+
+    <div>
+      <img src="BelfastA25.png" alt="Detail Shot" style="width:100%;">
+    </div>
+
+    <div>
+      <div class="kicker">Design Statement</div>
+
+      <p class="quote">
+        “Belfast transforms functional hardware into architectural detail — subtle, durable, and quietly expressive.”
+      </p>
+    </div>
+
+  </section>
+
 </div>
 
-  </div>
-
-  <hr class="arch-divider">
-
-  <!-- ─── SECTION 4: COMPLEMENTARY SPATIAL PAIRINGS ─── -->
-  <div class="editorial-cross-sell">
-    <div class="cross-sell-header">
-      <span class="arch-label primary">CURATED PALETTES</span>
-      <h3 class="arch-heading-xl">Spatial Integration Pairings</h3>
-    </div>
-    
-    <div class="matrix-grid">
-      <!-- Pairing Block 1 -->
-      <div class="matrix-card">
-        <div class="matrix-swatch-frame">
-          <img src="YorkA28.png" alt="Solid Oak Swatch">
-        </div>
-         <span class="arch-label primary">SKUA28</span>
-        <h4 class="matrix-title">York</h4>
-        <p class="matrix-desc">Matte black anchors open grained natural wood perfectly.</p>
-      </div>
-      <!-- Pairing Block 2 -->
-      <div class="matrix-card">
-        <div class="matrix-swatch-frame">
-          <img src="YorkA28.png" alt="Stone Textures">
-        </div>
-        <span class="arch-label primary">SKUA28</span>
-        <h4 class="matrix-title">York</h4>
-        <p class="matrix-desc">High contrast minimalist styling configuration.</p>
-      </div>
-      <!-- Pairing Block 3 -->
-      <div class="matrix-card">
-        <div class="matrix-swatch-frame">
-          <img src="YorkA28.png" alt="Companion Finish">
-        </div>
-        <span class="arch-label primary">SKUA28</span>
-        <h4 class="matrix-title">York</h4>
-        <p class="matrix-desc">Seamless hardware cohesion from kitchen into wet spaces.</p>
-      </div>
-    </div>
-  </div>
-
-  <hr class="arch-divider">
-
-  <!-- ─── SECTION 5: EXTENDED SYSTEM TEXTURED GALLERY ─── -->
-  <div class="editorial-gallery-wall">
-    <div class="gallery-intro">
-      <span class="arch-label muted">CONTEXT ARCHITECTURE</span>
-      <h3 class="arch-heading-xl" style="line-height: 1;">Architectural Project Context Focus Gallery</h3>
-      <p class="gallery-intro-sub">Captured on location. A study on clean horizontal shadows, hidden joins, and linear hardware flow.</p>
-    </div>
-
-    <!-- Asymmetrical dynamic grid frame layout system -->
-    <div class="gallery-masonry-grid">
-      
-      <!-- Primary Atmospheric Text Canvas Box Frame -->
-      <div class="gallery-canvas-main">
-        <div class="watermark-text">CUBIC FRAME</div>
-        <div class="canvas-content-top">
-          <h4>The Open Concept Axis</h4>
-          <p>By avoiding protruding framing overlays, Series 11 stays completely flush within shadow gap channels.</p>
-        </div>
-        <div class="canvas-meta-footer">
-          <span class="meta-title">Location Profile</span>
-          <span class="meta-value">Huron House Residence Interior Installation</span>
-        </div>
-      </div>
-
-      <!-- Secondary Structural Visual Content Cluster Stack -->
-      <div class="gallery-stack-aside">
-        <div class="quote-card">
-          <span style="font-size: 8px; color: var(--red); letter-spacing: 3px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">02 / VERTICAL REVEAL</span>
-          <p>"The tactile sensation of using solid hardware every morning completely changes how a custom piece of millwork feels."</p>
-        </div>
-        <div class="gallery-detail-frame">
-          <img src="YorkA28.png" alt="Detail Close-Up Hardware Component Frame">
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-<script src="search.js"></script>
+</body>
+</html>
