@@ -73,7 +73,11 @@
   }
 
   .arch-label.primary { color: var(--red); }
-  .arch-label.muted { color: var(--silver); }
+.arch-label.muted {
+  display: block;
+  color: var(--silver);
+  text-align: center;
+}
 
   .showcase-text {
     font-family: var(--serif);
@@ -108,14 +112,15 @@
     border-radius: 4px;
   }
 
-  .arch-heading-large {
-    font-family: var(--display);
-    font-size: 36px;
-    letter-spacing: 1px;
-    color: var(--black);
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
+.arch-heading-large {
+  font-family: var(--display);
+  font-size: 36px;
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
 
   .spec-table {
     display: flex;
@@ -140,25 +145,36 @@
     font-weight: 500;
   }
 
-  .spec-value {
-    font-weight: 600;
-    color: var(--black);
-  }
+.spec-value {
+  font-weight: 600;
+  color: var(--black);
+  text-align: center;
+}
+.editorial-blueprint-gallery {
+  text-align: center;
+  position: relative;
+  padding: 40px;
+  border: 1px dashed var(--silver);
+  background: #fff;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
 
-  .editorial-blueprint-gallery {
-    text-align: center;
-    position: relative;
-    padding: 40px;
-    border: 1px dashed var(--silver);
-    background: #fafafa;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-  }
-
+.editorial-blueprint-gallery img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: none;
+  opacity: 1;
+}
   .blueprint-tag {
     position: absolute;
     top: 15px;
@@ -225,7 +241,7 @@
     border-radius: 4px;
   }
 
- .matrix-swatch-frame {
+.matrix-swatch-frame {
   height: 300px;
   margin-bottom: 16px;
   border-radius: 2px;
@@ -233,6 +249,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: visible;
 }
 
@@ -243,7 +260,6 @@
   height: auto;
   object-fit: contain; /* shows full image */
 }
-
   .matrix-title {
     font-size: 13px;
     font-weight: 600;
@@ -373,22 +389,16 @@
     font-style: italic;
   }
 
-  .gallery-detail-frame {
-    background: var(--paper);
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    overflow: hidden;
-  }
+.gallery-detail-frame {
+  width: 100%;
+}
 
-  .gallery-detail-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+.gallery-detail-frame img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
   /* ─── MEDIA OVERRIDES FOR ARCHITECTURAL RESPONSIVENESS ─── */
   @media (max-width: 900px) {
     .arch-grid-row.grid-hero, 
@@ -413,12 +423,12 @@
   <!-- ─── SECTION 1: EDITORIAL HERO & SIGNATURE ─── -->
   <div class="arch-grid-row grid-hero">
     <div class="editorial-image-frame">
-      <img class="showcase-img" src="briminghamA32.png" alt="Linear Architectural Bar Installation">
+      <img class="showcase-img" src="A25Belfastknobs3.png" alt="Linear Architectural Bar Installation">
     </div>
     <div class="editorial-text-aside">
-      <span class="arch-label primary">Briminghan // Refined Urban</span>
+      <span class="arch-label primary">Birmingham // Timeless British</span>
       <p class="showcase-text">
-        "BriminghanBriminghanBriminghan."
+      "The Timeless British – Birmingham Collection is inspired by the enduring elegance of classic British interiors, reinterpreted for contemporary living. Characterized by refined proportions, graceful detailing, and a balanced silhouette, Birmingham brings sophistication, warmth, and understated luxury to modern cabinetry. The collection embodies a heritage-driven aesthetic that seamlessly blends traditional charm with everyday functionality."
       </p>
       <span class="editorial-signature">CABIMATE</span>
     </div>
@@ -431,37 +441,37 @@
     
     <!-- Technical Specifications Breakdown -->
     <div class="editorial-technical-specs">
-      <span class="arch-label muted">Briminghan COLLECTION</span>
+      <span class="arch-label muted">BIRMINGHAM COLLECTION</span>
       <h3 class="arch-heading-large">Handle & Knob Details</h3>
       
       <div class="spec-table">
         <div class="spec-row">
-          <span class="spec-label">Design Style</span>
-          <span class="spec-value">Modern Linear with Soft Classic Edges</span>
+          <span class="spec-label">Finished</span>
+          <span class="spec-value">Amber Brass· Matte Black · Brushed Satin Nickel · Polished Chrome</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">IDEAS</span>
-          <span class="spec-value">Kitchen . Shower</span>
+          <span class="spec-value">Kitchen · Bathroom · Laundry</span>
         </div>
         <div class="spec-row">
           <span class="spec-label">Handle Profile</span>
-          <span class="spec-value">Slim Rectilinear Bar Design</span>
+          <span class="spec-value">Classic Rounded Bar Design</span>
         </div>
         <div class="spec-row last">
           <span class="spec-label">Matching Components</span>
-          <span class="spec-value">Cabinet Handles & Round Knobs</span>
+          <span class="spec-value">Cabinet Handles & Traditional Knobs</span>
         </div>
       </div>
     </div>
 
 <!-- Dimensional Diagrams Blueprint Frame -->
 <div class="editorial-blueprint-gallery">
-  <div class="blueprint-tag">FIG 11.4 — STRUCTURAL CROSS SECTION</div>
+  <div class="blueprint-tag">BIRMINGHAM COLLECTION — STRUCTURAL CROSS SECTION</div>
   
   <!-- Native image component wrapper targeting asset directory -->
-  <img src="BriminghamA32.png" alt="Structural Profiling Diagram Blueprint" class="blueprint-img">
+  <img src="A25Belfastknobs2.png" alt="Structural Profiling Diagram Blueprint" class="blueprint-img">
   
-  <h3 class="arch-heading-small">Briminghan</h3>
+  <h3 class="arch-heading-small">BIRMINGHAM</h3>
 </div>
 
   </div>
@@ -471,39 +481,41 @@
   <!-- ─── SECTION 4: COMPLEMENTARY SPATIAL PAIRINGS ─── -->
   <div class="editorial-cross-sell">
     <div class="cross-sell-header">
-      <span class="arch-label primary">CURATED PALETTES</span>
-      <h3 class="arch-heading-xl">Spatial Integration Pairings</h3>
+      <span class="arch-label primary">6 Types 4 Finishes</span>
+      <h3 class="arch-heading-xl">BIRMINGHAM Cabinet Handles</h3>
     </div>
     
     <div class="matrix-grid">
       <!-- Pairing Block 1 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="BriminghamA32.png" alt="Solid Oak Swatch">
+          <img src="A25Belfastknobs.png" alt="Solid Oak Swatch">
         </div>
          <span class="arch-label primary">SKUA32</span>
-        <h4 class="matrix-title">Briminghan</h4>
-        <p class="matrix-desc">Matte black anchors open grained natural wood perfectly.</p>
+        <h4 class="matrix-title">BIRMINGHAM</h4>
+        <p class="matrix-desc">Classic cabinet handles.</p>
       </div>
       <!-- Pairing Block 2 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="BriminghamA32.png" alt="Stone Textures">
+          <img src="A25Belfastbsnfinished.png" alt="Stone Textures">
         </div>
         <span class="arch-label primary">SKUA32</span>
-        <h4 class="matrix-title">Briminghan</h4>
-        <p class="matrix-desc">High contrast minimalist styling configuration.</p>
+        <h4 class="matrix-title">BIRMINGHAM</h4>
+        <p class="matrix-desc">Elegant transitional styling inspired by timeless British interiors.</p>
       </div>
       <!-- Pairing Block 3 -->
       <div class="matrix-card">
         <div class="matrix-swatch-frame">
-          <img src="BriminghamA32.png" alt="Companion Finish">
+          <img src="A25Belfastseries.png" alt="Companion Finish">
         </div>
-        <span class="arch-label primary">SKUA32</span>
-        <h4 class="matrix-title">Briminghan</h4>
-        <p class="matrix-desc">Seamless hardware cohesion from kitchen into wet spaces.</p>
+        <span class="arch-label primary">SKUA25</span>
+        <h4 class="matrix-title">BIRMINGHAM</h4>
+        <p class="matrix-desc">Seamless hardware coordination across kitchens, vanities, and living spaces.</p>
       </div>
     </div>
+
+    
   </div>
 
   <hr class="arch-divider">
@@ -512,8 +524,8 @@
   <div class="editorial-gallery-wall">
     <div class="gallery-intro">
       <span class="arch-label muted">CONTEXT ARCHITECTURE</span>
-      <h3 class="arch-heading-xl" style="line-height: 1;">Architectural Project Context Focus Gallery</h3>
-      <p class="gallery-intro-sub">Captured on location. A study on clean horizontal shadows, hidden joins, and linear hardware flow.</p>
+      <h3 class="arch-heading-xl" style="line-height: 1;">BELFAST COLLECTION</h3>
+      <p class="gallery-intro-sub">A study in heritage, utility, and modern refinement. The BELFAST Collection reflects the honest simplicity of industrial design, combining robust forms with carefully considered proportions to create hardware that is both functional and sophisticated.</p>
     </div>
 
     <!-- Asymmetrical dynamic grid frame layout system -->
@@ -521,14 +533,15 @@
       
       <!-- Primary Atmospheric Text Canvas Box Frame -->
       <div class="gallery-canvas-main">
-        <div class="watermark-text">CUBIC FRAME</div>
+        <div class="watermark-text">BELFAST COLLECTION</div>
         <div class="canvas-content-top">
-          <h4>The Open Concept Axis</h4>
-          <p>By avoiding protruding framing overlays, Series 11 stays completely flush within shadow gap channels.</p>
+          <h4>Industrial Simplicity</h4>
+          <p>A study in heritage, refinement, and enduring craftsmanship. The BIRMINGHAM Collection draws inspiration from classic British design traditions, 
+            thoughtfully adapted through contemporary proportions to create hardware that feels both familiar and sophisticated.</p>
         </div>
         <div class="canvas-meta-footer">
           <span class="meta-title">Location Profile</span>
-          <span class="meta-value">Huron House Residence Interior Installation</span>
+          <span class="meta-value">Private Residence Interior Installation</span>
         </div>
       </div>
 
@@ -536,12 +549,11 @@
       <div class="gallery-stack-aside">
         <div class="quote-card">
           <span style="font-size: 8px; color: var(--red); letter-spacing: 3px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">02 / VERTICAL REVEAL</span>
-          <p>"The tactile sensation of using solid hardware every morning completely changes how a custom piece of millwork feels."</p>
+          <p>"The refined form and timeless detailing of BIRMINGHAM bring an effortless sense of elegance to cabinetry, transforming everyday touchpoints into expressions of craftsmanship, sophistication, and lasting British design."</p>
         </div>
         <div class="gallery-detail-frame">
-          <img src="BriminghamA32.png" alt="Detail Close-Up Hardware Component Frame">
+          <img src="BelfastA25.png" alt="Detail Close-Up Hardware Component Frame">
         </div>
-      </div>
 
     </div>
   </div>
